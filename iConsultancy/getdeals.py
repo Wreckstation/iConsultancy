@@ -2,7 +2,7 @@ import requests
 
 from iConsultancy.config import config
 
-url = f'{config['URL']}/api/3/deals'
+url = f"{config['URL']}/api/3/deals"
 
 response = requests.request("GET", url)
 

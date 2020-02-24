@@ -11,5 +11,5 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 ```
 pip install pipenv
 pipenv sync --dev
-pipenv run (main py file. not created yet)
+pipenv run jupyter notebook
 ```
