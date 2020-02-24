@@ -105,10 +105,4 @@ venv.bak/
 
 
 # Project-specific ignores
-.idea/
-Textures/
-wiki.yml
-CavesofQudTileModdingToolkit.zip
-last_xml_location
-screenshot-old.png
-game_location_for_tests
+config.yml
