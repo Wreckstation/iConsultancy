@@ -10,6 +10,7 @@ pyyaml = "*"
 requests = "*"
 jupyter = "*"
 pandas = "*"
+ipywidgets = "*"
 
 [requires]
 python_version = "3.8"
