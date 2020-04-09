@@ -39,7 +39,7 @@ stage_text = widgets.Text(
        description='Deal Stage:')
 
 checkbox = widgets.Checkbox(
-           description='return as CSV',
+           description='return as JSON (debug)',
            value=True)
 
 #Choose date
@@ -49,7 +49,7 @@ tempbox = widgets.HBox([calendar, calendar])
 box = widgets.VBox([text, slider, tempbox, checkbox ])
 search_box = widgets.Box(children=[search_field_menu, search_text], layout=widgets.Layout(justify_content="flex-start"))
 
-button = widgets.Button(description='My Button')
+button = widgets.Button(description='Get .CSV Report')
 out = widgets.Output()
 
 # Output widgets
@@ -63,11 +63,13 @@ def on_button_clicked(_):
                      'status': status_menu.value,
                      'stage': stage_text.value}
           response = request(filters)
-          if checkbox.value == True:
-            a = json_to_csv(response.json())
-          else:
-            a = response.text
-          print(a)
+          if checkbox.value == True: # if user doesn't want to convert to csv
+            a = response.text # set output to json
+            print(a) #show json
+          else:  # if user wants to convert to csv
+            a = json_to_csv(response.json()) # set output to freshly-converted csv 
+            print("Saved as 'output.csv'") # notify user to check out output
+            
           
 # linking button and function together using a button's method
 button.on_click(on_button_clicked)
