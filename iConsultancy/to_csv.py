@@ -1,6 +1,6 @@
 import pandas as pd
 
-def json_to_csv(responsejson, filename=None):
+def json_to_csv(responsejson, filename='output.csv'):
     try:
         json_norm = pd.json_normalize(responsejson, record_path="deals")
         return json_norm.to_csv(filename)
