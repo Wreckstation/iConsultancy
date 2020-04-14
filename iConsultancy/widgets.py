@@ -50,7 +50,7 @@ nextdate_range_menu = widgets.Dropdown(
 
 tag_text = widgets.Text(
        placeholder='',
-       description='') #TODO: tag id must be known
+       description='Tag ID:') #TODO: tag id must be known
 
 tasktype_text = widgets.Text(
        placeholder='',
@@ -64,8 +64,7 @@ maxval_floattext = widgets.FloatText(
        placeholder='0',
        description='',
        layout=Layout(width = '20%'))
-val_label = widgets.Label(
-    value='<= Value <=')
+val_label = widgets.Label(value='≤ Value ≤')
 
 val_box = widgets.HBox([minval_floattext, val_label, maxval_floattext])
 
@@ -93,19 +92,23 @@ def on_button_clicked(_):
           filters = {'search_field': search_field_menu.value,
                      'search': search_text.value,
                      'status': status_menu.value,
-                     'stage': stage_text.value}
+                     'stage': stage_text.value,
+                     'owner': owner_text.value,
+                     'tag': tag_text.value,
+                     'tasktype': tasktype_text.value,
+                     'nextdate_range': nextdate_range_menu.value
+                     }
           response = request(filters)
           if checkbox.value == True: # if user doesn't want to convert to csv
-            a = response.text # set output to json
-            print(a) #show json
+              a = response.text # set output to json
+              print(a) #show json
           else:  # if user wants to convert to csv
-            a = json_to_csv(response.json()) # set output to freshly-converted csv 
-            print("Saved as 'output.csv'") # notify user to check out output
-            
-          
+              a = json_to_csv(response.json()) # set output to freshly-converted csv 
+              print("Saved as 'output.csv'") # notify user to check out output
+
 # linking button and function together using a button's method
 button.on_click(on_button_clicked)
 
 button_with_check = widgets.HBox([button, checkbox])
 #final search menu
-full_display = widgets.VBox([search_box, status_menu, stage_text, val_box, button_with_check,out])
+full_display = widgets.VBox([search_box, status_menu, stage_text, owner_text, tag_text, nextdate_range_menu, tasktype_text, val_box, button_with_check,out])
