@@ -101,7 +101,7 @@ def on_button_clicked(_):
           else:  # if user wants to convert to csv
             a = json_to_csv(response.json()) # set output to freshly-converted csv 
             print("Saved as 'output.csv'") # notify user to check out output
-           
+            
           
 # linking button and function together using a button's method
 button.on_click(on_button_clicked)
