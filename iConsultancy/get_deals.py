@@ -4,12 +4,13 @@ from requests.auth import HTTPBasicAuth
 import iConsultancy.to_csv as to_csv
 from iConsultancy.config import config
 
-# Get requests from the server
+# Prepare session and headers
 headers = {'Api-Token': config["KEY"]}
 s = requests.Session()
 s.headers.update(headers)
 
 def request_deals(filters):
+    # Request a dictionary of deals using the specified filters.
     payload = {'filters[search_field]': filters['search_field'],
                'filters[search]': filters['search'],
                'filters[status]': filters['status'],
@@ -25,6 +26,7 @@ def request_deals(filters):
     return response
 
 def request_tags(search):
+    # Request a dictionary of tags using a name search. Returns multiple if found.
     payload = {'search': search}
     url = config["URL"] + "tags"
     response = s.get(url, params=payload)
@@ -53,7 +55,7 @@ def return_tag_ids(search, b_multiple_tag_search = False):
         return [1, [response['tags'][0]['id']]]
 
 def request(filters, b_output_type = True, fn = None, mt = False):
-    #send the request to the server and back. returns as a pandas dataframe.
+    # Prepare tag id search by converting name to ids
     req_filters = filters
     req_filters['tag'] = ''
     tags = ['']
@@ -68,9 +70,9 @@ def request(filters, b_output_type = True, fn = None, mt = False):
         elif tag_response_code == 2:
             notices += 'There was more than one tag that was returned, but deals that only match the first one were returned.\n\n'
         elif tag_response_code == 3:
-            notices += 'There waw more than one tag that was similar to your query, and all matches were returned.\n\n'
+            notices += 'There was more than one tag that was similar to your query, and all matches were returned.\n\n'
         result = None
-        for tag in tags:
+        for tag in tags: # If searching by multiple tags, search all and concat into one df
             req_filters['tag'] = tag
             if result is None:
                 result = to_csv.json_to_df(request_deals(req_filters).json())
@@ -80,7 +82,7 @@ def request(filters, b_output_type = True, fn = None, mt = False):
         result = to_csv.json_to_df(request_deals(req_filters).json())
     # Return values based on output type: True for JSON, False for CSV
     if b_output_type:
-        return [result.to_json(), notices]
+        return [result.to_json(fn), notices]
     else:
         return [result.to_csv(fn), notices]
 
