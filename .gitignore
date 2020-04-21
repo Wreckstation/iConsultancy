@@ -106,3 +106,4 @@ venv.bak/
 
 # Project-specific ignores
 config.yml
+Pipfile.lock
