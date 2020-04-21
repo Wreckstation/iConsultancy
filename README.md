@@ -14,15 +14,15 @@ To access the fields in code, first import the file using ```from iConsultancy/c
     jupyter nbextension enable --py --sys-prefix widgetsnbextension  # can be skipped for notebook version 5.3 and above
     ```
 3. Clone the git repository.
-2. Navigate to the unzipped repository in the terminal.
-3. Install `pipenv` by running `pip install pipenv`
-4. With pipenv: 
+4. Navigate to the unzipped repository in the terminal.
+5. Install `pipenv` by running `pip install pipenv`
+   - With pipenv: 
 ```
 pipenv lock #creates a pipfile.lock
 ```
-   - `pipenv lock` checks your system and ensure all necessary dependencies are installed and updated
+     - `pipenv lock` checks your system and ensure all necessary dependencies are installed and updated
 
-5. Run these commands:
+6. Run these commands:
 ```
 pipenv sync --dev
 pipenv run jupyter notebook #opens jupyter notebook in a virtual environment
