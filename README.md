@@ -33,4 +33,4 @@ pipenv run jupyter notebook #opens Jupyter Notebook in a virtual environment
 ```
 6. Once Juypter Notebook is running, enter the `config.yml.example` file.
 7. Replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY, save, and rename the file `config.yml`
-
+<div style="width:260px;max-width:100%;"><div style="height:0;padding-bottom:37.31%;position:relative;"><iframe width="260" height="97" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/3xkra4"></iframe></div><p><a href="https://imgflip.com/gif/3xkra4">via Imgflip</a></p></div> 
