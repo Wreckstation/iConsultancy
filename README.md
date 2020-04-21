@@ -25,7 +25,11 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 6. Run these commands:
 ```
 pipenv sync --dev
-pipenv run jupyter notebook #opens jupyter notebook in a virtual environment
+pipenv run jupyter notebook #opens Jupyter Notebook in a virtual environment
 ```
-6. Enter the `iConsultancy-Master` folder
-7.
+6. Once Juypter Notebook is running, enter the `config.yml.example` file.
+7. Replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY, save, and rename the file `config.yml`
+   ```
+   URL: https://URLHERE.api-us1.com/api/3/
+   KEY: KEYHERE
+   ```
