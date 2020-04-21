@@ -82,7 +82,7 @@ def request(filters, b_output_type = True, fn = None, mt = False):
         result = to_csv.json_to_df(request_deals(req_filters).json())
     # Return values based on output type: True for JSON, False for CSV
     if b_output_type:
-        return [result.to_json(fn), notices]
+        return [result.to_json(), notices]
     else:
         return [result.to_csv(fn), notices]
 

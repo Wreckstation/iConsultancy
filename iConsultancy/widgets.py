@@ -81,7 +81,8 @@ warning_checkbox = widgets.Checkbox(
 
 file_name_text = widgets.Text(
     description='File Name:',
-    layout=Layout(width = '50%'))
+    layout=Layout(width = '50%'),
+    value='output.csv')
 
 #Choose date
 tempbox = widgets.HBox([calendar, calendar])
