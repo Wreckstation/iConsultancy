@@ -10,8 +10,12 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 2. Installation of `ipywidgets`, an interactive widgets for the Jupyter Notebook.
    - With pip:
     ```
-    pip install ipywidgets`
+    pip install ipywidgets
     jupyter nbextension enable --py --sys-prefix widgetsnbextension  # can be skipped for notebook version 5.3 and above
+    ```
+    - With conda:
+    ```
+    conda install -c conda-forge ipywidgets
     ```
 3. Clone the git repository.
 4. Navigate to the unzipped repository in the terminal.
