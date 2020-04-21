@@ -20,7 +20,7 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 ```
 pipenv lock #creates a pipfile.lock
 ```
-     - `pipenv lock` checks your system and ensure all necessary dependencies are installed and updated
+`pipenv lock` checks your system to ensure all necessary dependencies are installed and updated
 
 6. Run these commands:
 ```
