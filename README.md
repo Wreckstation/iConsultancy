@@ -7,7 +7,7 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 
 ## How to run
 1. Installation of python version 3.8 is needed
-    [Download the latest Python update here:](https://www.python.org/)
+    [Download the latest Python update here](https://www.python.org/)
 2. Installation of `ipywidgets`, an interactive widgets for the Jupyter Notebook.
 * With pip:
     ```
