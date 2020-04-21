@@ -8,7 +8,7 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 ## How to run
 1. Installation of python version 3.8 is needed. [Download the latest Python update here](https://www.python.org/)
 2. Installation of `ipywidgets`, an interactive widgets for the Jupyter Notebook.
-* With pip:
+   - With pip:
     ```
     pip install ipywidgets`
     jupyter nbextension enable --py --sys-prefix widgetsnbextension  # can be skipped for notebook version 5.3 and above
@@ -17,10 +17,10 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 4. Navigate to the unzipped repository in the terminal.
 5. Install `pipenv` by running `pip install pipenv`
    - With pipenv: 
-```
-pipenv lock #creates a pipfile.lock
-```
-`pipenv lock` checks your system to ensure all necessary dependencies are installed and updated
+   ```
+   pipenv lock #creates a pipfile.lock
+   ```
+   - `pipenv lock` checks your system to ensure all necessary dependencies are installed and updated
 
 6. Run these commands:
 ```
