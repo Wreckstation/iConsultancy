@@ -46,8 +46,8 @@ pipenv sync --dev #installs versions specified in the pipefile.lock
 pipenv run jupyter notebook #opens Jupyter Notebook in a virtual environment
 ```
    - You do not need to run `pipenv sync --dev` everytime prior to opening the Jupyter Notebook. 
-   - `pipenv sync --dev` is only necessary to install the the exact versions specified in pipfile.lock. 
-   - The command `pipenv run jupyter notebook` is needed everytime to access the Jupyter Notebook
+   - `pipenv sync --dev` is only necessary to install the the exact versions specified in Pipfile.lock
+   - The command `pipenv run jupyter notebook` is needed everytime to access the Jupyter Notebook.
    
 Below is a quick demo for how to run Step 6 and Step 7:
 ![](Step6-Step7tutorial.gif)
