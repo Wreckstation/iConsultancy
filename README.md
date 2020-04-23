@@ -55,4 +55,5 @@ Below is a quick demo for how to run Step 6 and Step 7:
 8. Once Juypter Notebook is running, open the `config.yml.example` file.
 9. Replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY, save, and rename the file `config.yml`
    Everytime the URL and KEY change, ensure the `config.yml` file is updated to reflect the new URL and KEY.
+   
 ![](URL_KEY_tutorial_README.gif)
