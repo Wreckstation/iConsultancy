@@ -12,9 +12,9 @@ To access the fields in code, first import the file using ```from iConsultancy/c
    - To check for python version:
      |   OS   |                             Method                               |
      | ------ | ---------------------------------------------------------------- |
-     | Windows| Open Windows Powershell and run `python --version` or `python -v`|
-     | MacOS  | Open terminal window and run `python --version` or `python -v`   |
-     | Linux  | Open terminal window and run `python --version` or `python -v`   |
+     | Windows| Open Windows Powershell and run `python --version` or `python -V`|
+     | MacOS  | Open terminal window and run `python --version` or `python -V`   |
+     | Linux  | Open terminal window and run `python --version` or `python -V`   |
      
    
 2. Installation of `ipywidgets`, an interactive widgets for the Jupyter Notebook.
