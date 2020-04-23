@@ -16,9 +16,18 @@ def request_deals(filters):
                'filters[status]': filters['status'],
                'filters[stage]': filters['stage'],
                'filters[owner]': filters['owner'],
+               'filters[nextdate_range]': filters['nextdate_range'],
                'filters[tag]': filters['tag'],
                'filters[tasktype]': filters['tasktype'],
-               'filters[nextdate_range]': filters['nextdate_range']
+               'filters[created_before]': filters['created_before'],
+               'filters[created_after]': filters['created_after'],
+               'filters[updated_before]': filters['updated_before'],
+               'filters[updated_after]': filters['updated_after'],
+               'filters[minimum_value]': filters['minimum_value'],
+               'filters[maximum_value]': filters['maximum_value'],
+               'filters[score_greater_than]': filters['score_greater_than'],
+               'filters[score_less_than]': filters['score_less_than'],
+               'filters[score]': filters['score']
                }
     url = config["URL"] + "deals"
     response = s.get(url, params=payload)
