@@ -6,9 +6,16 @@ To properly use the ActiveCampgain API features in our code, an URL and key must
 To access the fields in code, first import the file using ```from iConsultancy/config import config``` and you can call on it like a dictionary.
 
 ## How to run
-1. Installation of python version 3.8 is needed. 
+1. Installation of Python version 3.8 is needed. 
    [Download the latest Python update here!](https://www.python.org/) 
-   - If Python is already installed, check to ensure python is up-to-date. This step is only necessary for a one-time installation.
+   - If Python is already installed, check to ensure python is up-to-date by running. This step is only necessary for a one-time installation.
+   - To check for python version:
+     |   OS   |                             Method                               |
+     | ------ | ---------------------------------------------------------------- |
+     | Windows| Open Windows Powershell and run `python --version` or `python -v`|
+     | MacOS  | Open terminal window and run `python --version` or `python -v`   |
+     | Linux  | Open terminal window and run `python --version` or `python -v`   |
+     
    
 2. Installation of `ipywidgets`, an interactive widgets for the Jupyter Notebook.
    - With pip:
@@ -16,27 +23,24 @@ To access the fields in code, first import the file using ```from iConsultancy/c
     pip install ipywidgets
     jupyter nbextension enable --py --sys-prefix widgetsnbextension  #Can be skipped for notebook version 5.3 and above
     ```
-    - With conda:
-    ```
-    conda install -c conda-forge ipywidgets
-    ```
     This step is only necessary for a one-time installation.
     
 3. Clone the git repository.
+
 4. Navigate to the unzipped repository in the terminal.
-5. Install `pipenv` by running `pip install pipenv`
+
+5. Use `pip` to install `pipenv` and its dependencies
+   ```pip install pipenv
+   ```
    If pipenv is already installed on your device, skip this step. This step is only necessary for a one-time installation. 
    
-6. With pipenv: 
-   ```
-   pipenv lock #creates a pipfile.lock
-   ```
+6. Run `pipenv lock` , which creates a pipfile.lock
+   
    - `pipenv lock` checks your system to ensure all necessary dependencies are installed and updated
-   - Note: If `pipenv lock` is taking more than a few minutes to run, you can try to run the following in the terminal:
+   - Note: If `pipenv lock` is taking more than a few minutes to run, you can try to run the following in the terminal instead:
    ```
    pipenv lock --clear
    ```
-   If pipenv is already installed on your device, skip this step. 
 
 7. After a successful updated Pipfile.lock, run these commands:
 ```
