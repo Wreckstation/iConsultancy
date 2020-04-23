@@ -9,26 +9,19 @@ headers = {'Api-Token': config["KEY"]}
 s = requests.Session()
 s.headers.update(headers)
 
-def request_deals(filters):
-    # Request a dictionary of deals using the specified filters.
+def request_deals(filters, sort):
+    order = sort['sortby'] 
+    # Request a dictionary of deals using the specified filters and sort order.
     payload = {'filters[search_field]': filters['search_field'],
                'filters[search]': filters['search'],
                'filters[status]': filters['status'],
                'filters[stage]': filters['stage'],
                'filters[owner]': filters['owner'],
-               'filters[nextdate_range]': filters['nextdate_range'],
                'filters[tag]': filters['tag'],
                'filters[tasktype]': filters['tasktype'],
-               'filters[created_before]': filters['created_before'],
-               'filters[created_after]': filters['created_after'],
-               'filters[updated_before]': filters['updated_before'],
-               'filters[updated_after]': filters['updated_after'],
-               'filters[minimum_value]': filters['minimum_value'],
-               'filters[maximum_value]': filters['maximum_value'],
-               'filters[score_greater_than]': filters['score_greater_than'],
-               'filters[score_less_than]': filters['score_less_than'],
-               'filters[score]': filters['score']
-               }
+               'filters[nextdate_range]': filters['nextdate_range'],
+               f'orders[{order}]': sort['sortorder']
+               }  
     url = config["URL"] + "deals"
     response = s.get(url, params=payload)
     response.close() # Close connection to server
@@ -63,7 +56,7 @@ def return_tag_ids(search, b_multiple_tag_search = False):
     else:
         return [1, [response['tags'][0]['id']]]
 
-def request(filters, b_output_type = True, fn = None, mt = False):
+def request(filters, sort, b_output_type = True, fn = None, mt = False):
     # Prepare tag id search by converting name to ids
     req_filters = filters
     req_filters['tag'] = ''
@@ -84,11 +77,11 @@ def request(filters, b_output_type = True, fn = None, mt = False):
         for tag in tags: # If searching by multiple tags, search all and concat into one df
             req_filters['tag'] = tag
             if result is None:
-                result = to_csv.json_to_df(request_deals(req_filters).json())
+                result = to_csv.json_to_df(request_deals(req_filters, sort).json())
             else:
-                result += to_csv.json_to_df(request_deals(req_filters).json())
+                result += to_csv.json_to_df(request_deals(req_filters, sort).json())
     else:
-        result = to_csv.json_to_df(request_deals(req_filters).json())
+        result = to_csv.json_to_df(request_deals(req_filters, sort).json())
     # Return values based on output type: True for JSON, False for CSV
     if b_output_type:
         return [result.to_json(), notices]
