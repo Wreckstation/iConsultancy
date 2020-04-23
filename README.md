@@ -50,7 +50,7 @@ pipenv run jupyter notebook #opens Jupyter Notebook in a virtual environment
    - The command `pipenv run jupyter notebook` is needed everytime to access the Jupyter Notebook
    
 Below is a quick demo for how to run Step 6 and Step 7:
-![](.gif)
+![](Step6-Step7tutorial.gif)
 
 8. Once Juypter Notebook is running, open the `config.yml.example` file.
 9. Replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY, save, and rename the file `config.yml`
