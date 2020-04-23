@@ -8,7 +8,7 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 ## How to run
 1. Installation of Python version 3.8 is needed. This step is only necessary for a one-time installation.
    [Download the latest Python update here!](https://www.python.org/) 
-   - If Python is already installed, check to ensure python is up-to-date by running. Check for python version based on OS:
+   - If Python is already installed, check to ensure the Python version installed is correct:
      |   OS   |                             Method                               |
      | ------ | ---------------------------------------------------------------- |
      | Windows| Open Windows Powershell and run `python --version` or `python -V`|
