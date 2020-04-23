@@ -29,17 +29,18 @@ To access the fields in code, first import the file using ```from iConsultancy/c
 4. Navigate to the unzipped repository in the terminal.
 
 5. Use `pip` to install `pipenv` and its dependencies
-   ```pip install pipenv
+   ```
+   pip install pipenv
    ```
    If pipenv is already installed on your device, skip this step. This step is only necessary for a one-time installation. 
    
-6. Run `pipenv lock` , which creates a pipfile.lock
+6. Run `pipenv lock`, which creates a pipfile.lock
    
    - `pipenv lock` checks your system to ensure all necessary dependencies are installed and updated
    - Note: If `pipenv lock` is taking more than a few minutes to run, you can try to run the following in the terminal instead:
-   ```
-   pipenv lock --clear
-   ```
+      ```
+      pipenv lock --clear
+      ```
 
 7. After a successful updated Pipfile.lock, run these commands:
 ```
