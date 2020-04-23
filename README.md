@@ -6,7 +6,8 @@ To properly use the ActiveCampgain API features in our code, an URL and key must
 To access the fields in code, first import the file using ```from iConsultancy/config import config``` and you can call on it like a dictionary.
 
 ## How to run
-1. Installation of python version 3.8 is needed. [Download the latest Python update here](https://www.python.org/) 
+1. Installation of python version 3.8 is needed. 
+   [Download the latest Python update here](https://www.python.org/) 
    If Python is already installed, check to ensure python is up-to-date.
    This step is only necessary for a one-time installation.
    
