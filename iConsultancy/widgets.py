@@ -81,11 +81,11 @@ updated_box = widgets.VBox([updated_label, updated_hbox])
 
 # Minimum and maximum value
 minval_floattext = widgets.FloatText(
-       placeholder='0',
+       placeholder='',
        description='',
        layout=Layout(width = '20%'))
 maxval_floattext = widgets.FloatText(
-       placeholder='0',
+       placeholder='',
        description='',
        layout=Layout(width = '20%'))
 val_label = widgets.Label(value='≤ Value ≤')
@@ -93,14 +93,14 @@ val_box = widgets.HBox([minval_floattext, val_label, maxval_floattext])
 
 # Score
 score_floatext = widgets.FloatText(
-    placeholder='0',
+    placeholder='',
     description='Score =')
 score_g_floattext = widgets.FloatText(
-       placeholder='0',
+       placeholder='',
        description='',
        layout=Layout(width = '20%'))
 score_l_floattext = widgets.FloatText(
-       placeholder='0',
+       placeholder='',
        description='',
        layout=Layout(width = '20%'))
 score_label = widgets.Label(value='< Score <')
@@ -138,7 +138,7 @@ def on_button_clicked(_):
     with out:
         # what happens when we press the button
         clear_output()
-        filters = {'search_field': search_field_menu.value,
+        filters_dict_text = {'search_field': search_field_menu.value,
                    'search': search_text.value,
                    'status': status_menu.value,
                    'stage': stage_text.value,
@@ -150,17 +150,28 @@ def on_button_clicked(_):
                    'updated_before': updated_before_calendar.value,
                    'updated_after': updated_after_calendar.value,
                    'nextdate_range': nextdate_range_menu.value,
-                   'minimum_value': minval_floattext.value,
+                    }
+        filters_dict_numeric = {'minimum_value': minval_floattext.value,
                    'maximum_value': maxval_floattext.value,
                    'score_greater_than': score_g_floattext.value,
                    'score_less_than': score_l_floattext.value,
-                   'score': score_floatext.value
-                  }
+                   'score': score_floatext.value}
+        # value and score must be altered to be used as a score
+        filters = {}
+        for filter in filters_dict_text:
+            val = filters_dict_text[filter]
+            if not str(val).isspace():
+                filters[filter] = filters_dict_text[filter]
+        for filter in filters_dict_numeric:
+            val = filters_dict_numeric[filter]
+            if val != 0:
+                filters[filter] = filters_dict_numeric[filter]
         sort = {'sortby': sortby_menu.value, 'sortorder': sortorder_menu.value}
         response = request(filters, sort, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
         if warning_checkbox.value == True:
             print(response[1]) # return any system messages that the query returned
-        print("Saved as "+str(file_name_text.value))
+        print('Saved as ' + file_name_text.value +'.\nOutput:')
+        print(response[0]) # If response is none it won't error because of concatenating None
 
 # linking button and function together using a button's method
 button.on_click(on_button_clicked)

@@ -12,25 +12,13 @@ s.headers.update(headers)
 def request_deals(filters, sort):
     order = sort['sortby'] 
     # Request a dictionary of deals using the specified filters.
-    payload = {'filters[search_field]': filters['search_field'],
-               'filters[search]': filters['search'],
-               'filters[status]': filters['status'],
-               'filters[stage]': filters['stage'],
-               'filters[owner]': filters['owner'],
-               'filters[nextdate_range]': filters['nextdate_range'],
-               'filters[tag]': filters['tag'],
-               'filters[tasktype]': filters['tasktype'],
-               'filters[created_before]': filters['created_before'],
-               'filters[created_after]': filters['created_after'],
-               'filters[updated_before]': filters['updated_before'],
-               'filters[updated_after]': filters['updated_after'],
-               'filters[minimum_value]': filters['minimum_value'],
-               'filters[maximum_value]': filters['maximum_value'],
-               'filters[score_greater_than]': filters['score_greater_than'],
-               'filters[score_less_than]': filters['score_less_than'],
-               'filters[score]': filters['score'],
-               f'orders[{order}]': sort['sortorder']
-               }
+    payload = {}
+    for field in filters:
+        a = filters[field]
+        if not str(a).isspace():
+            payload[f'filters[{field}]'] = filters[field]
+    payload[f'orders[{order}]'] = sort['sortorder']
+
     url = config["URL"] + "deals"
     response = s.get(url, params=payload)
     response.close() # Close connection to server
@@ -95,7 +83,8 @@ def request(filters, sort, b_output_type = True, fn = None, mt = False):
     if b_output_type:
         return [result.to_json(), notices]
     else:
-        return [result.to_csv(fn), notices]
+        result.to_csv(fn)
+        return [result.to_csv(), notices]
 
 def tag_request(filters, b_output_type = True, fn = None, mt = False):
     # This is for debug testing purposes
