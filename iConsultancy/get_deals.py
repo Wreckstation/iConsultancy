@@ -10,6 +10,7 @@ s = requests.Session()
 s.headers.update(headers)
 
 def request_deals(filters):
+    order = sort['sortby'] 
     # Request a dictionary of deals using the specified filters.
     payload = {'filters[search_field]': filters['search_field'],
                'filters[search]': filters['search'],
@@ -28,6 +29,7 @@ def request_deals(filters):
                'filters[score_greater_than]': filters['score_greater_than'],
                'filters[score_less_than]': filters['score_less_than'],
                'filters[score]': filters['score']
+               f'orders[{order}]': sort['sortorder']
                }
     url = config["URL"] + "deals"
     response = s.get(url, params=payload)
@@ -63,7 +65,7 @@ def return_tag_ids(search, b_multiple_tag_search = False):
     else:
         return [1, [response['tags'][0]['id']]]
 
-def request(filters, b_output_type = True, fn = None, mt = False):
+def request(filters, sort, b_output_type = True, fn = None, mt = False):
     # Prepare tag id search by converting name to ids
     req_filters = filters
     req_filters['tag'] = ''
@@ -84,11 +86,11 @@ def request(filters, b_output_type = True, fn = None, mt = False):
         for tag in tags: # If searching by multiple tags, search all and concat into one df
             req_filters['tag'] = tag
             if result is None:
-                result = to_csv.json_to_df(request_deals(req_filters).json())
+                result = to_csv.json_to_df(request_deals(req_filters, sort).json())
             else:
-                result += to_csv.json_to_df(request_deals(req_filters).json())
+                result += to_csv.json_to_df(request_deals(req_filters, sort).json())
     else:
-        result = to_csv.json_to_df(request_deals(req_filters).json())
+        result = to_csv.json_to_df(request_deals(req_filters, sort).json())
     # Return values based on output type: True for JSON, False for CSV
     if b_output_type:
         return [result.to_json(), notices]

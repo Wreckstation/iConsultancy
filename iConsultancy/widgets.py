@@ -49,6 +49,7 @@ tag_box = widgets.HBox([tag_text, multiple_tag_checkbox])
 tasktype_text = widgets.Text(
        placeholder='',
        description='Task type:')
+       
 # Created
 created_label = widgets.Label(value='Created')
 created_before_calendar = widgets.DatePicker(
@@ -57,6 +58,17 @@ created_after_calendar = widgets.DatePicker(
            description='After:')
 created_hbox = widgets.HBox([created_before_calendar, created_after_calendar])
 created_box = widgets.VBox([created_label, created_hbox])
+
+# Sort
+sortby_menu = widgets.Dropdown(
+       options=[('N/A', ''), ('Title', 'title'), ('Value', 'value'), ('Created date', 'cdate'), ('Primary contact first name', 'contact_name'), ('Primary contact organization name', 'contact_orgname'), ('Next task due date', 'next-action')],
+       value='',
+       description='Sort by:',
+       layout=Layout(width = '15em'))   
+sortorder_menu = widgets.Dropdown(
+       options=[('Descending', 'DESC'), ('Ascending', 'ASC')],
+       value='DESC',
+       description='')
 
 # Updated
 updated_label = widgets.Label(value='Updated')
@@ -116,6 +128,11 @@ button = widgets.Button(description='Get .CSV Report',
                         layout=Layout(width = '50%'))
 out = widgets.Output()
 
+#sort
+box2 = widgets.VBox([text, slider, tempbox, checkbox ])
+sort_box = widgets.Box(children=[sortby_menu, widgets.Label(
+    value='in this order:'), sortorder_menu], layout=widgets.Layout(justify_content="flex-start"))
+
 # Output widgets
 def on_button_clicked(_):
     # "linking function with output"
@@ -140,7 +157,8 @@ def on_button_clicked(_):
                    'score_less_than': score_l_floattext.value,
                    'score': scorscore_floatext.value
                   }
-        response = request(filters, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
+        sort = {'sortby': sortby_menu.value, 'sortorder': sortorder_menu.value}
+        response = request(filters, sort, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
         if warning_checkbox.value == True:
             print(response[1]) # return any system messages that the query returned
         print(response[0])
@@ -157,6 +175,7 @@ full_display = widgets.VBox([search_box,
                             tag_box, 
                             nextdate_range_menu, 
                             tasktype_text, 
+                            sort_box,
                             created_box, 
                             updated_box, 
                             val_box, 
