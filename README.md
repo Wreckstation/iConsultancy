@@ -1,4 +1,4 @@
-![UMD iSchool Logo](ischool.png){:class="img-responsive"}
+![UMD iSchool Logo][[ischool.png | width=100px | alt=Bridge]]
 # iConsultancy
 
 ## How to run
