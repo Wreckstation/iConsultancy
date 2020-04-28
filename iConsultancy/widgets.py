@@ -154,13 +154,13 @@ def on_button_clicked(_):
                    'maximum_value': maxval_floattext.value,
                    'score_greater_than': score_g_floattext.value,
                    'score_less_than': score_l_floattext.value,
-                   'score': score_floatext.value
+                   'score': scorscore_floatext.value
                   }
         sort = {'sortby': sortby_menu.value, 'sortorder': sortorder_menu.value}
         response = request(filters, sort, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
         if warning_checkbox.value == True:
             print(response[1]) # return any system messages that the query returned
-        print(response[0])
+        print("Saved as "+str(file_name_text.value))
 
 # linking button and function together using a button's method
 button.on_click(on_button_clicked)
