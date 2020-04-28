@@ -36,7 +36,7 @@
       jupyter nbextension enable --py --sys-prefix widgetsnbextension
       ```
     
-   This step is only necessary for the first installation.
+      This step is only necessary for the first installation.
    - Exit the pipenv shell by typing `quit`.
 7. Jupyter Notebook can now be properly executed. To start the program, run:
    ```
