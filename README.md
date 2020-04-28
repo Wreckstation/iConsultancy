@@ -1,4 +1,4 @@
-# iConsultancy ![UMD iSchool Logo](ischool.png)
+# iConsultancy
 
 ## How to run
 1. Installation of Python version 3.8 is needed. This step is only necessary for a one-time installation.
