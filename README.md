@@ -1,4 +1,5 @@
-![UMD iSchool Logo][[ischool.png | width=100px | alt=Bridge]]
+
+<img src="ischool.png" width="300" markdown="1">
 # iConsultancy
 
 ## How to run
