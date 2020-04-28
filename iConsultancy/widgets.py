@@ -129,7 +129,6 @@ button = widgets.Button(description='Get .CSV Report',
 out = widgets.Output()
 
 #sort
-box2 = widgets.VBox([text, slider, tempbox, checkbox ])
 sort_box = widgets.Box(children=[sortby_menu, widgets.Label(
     value='in this order:'), sortorder_menu], layout=widgets.Layout(justify_content="flex-start"))
 
