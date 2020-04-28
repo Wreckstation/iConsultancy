@@ -154,7 +154,7 @@ def on_button_clicked(_):
                    'maximum_value': maxval_floattext.value,
                    'score_greater_than': score_g_floattext.value,
                    'score_less_than': score_l_floattext.value,
-                   'score': scorscore_floatext.value
+                   'score': score_floatext.value
                   }
         sort = {'sortby': sortby_menu.value, 'sortorder': sortorder_menu.value}
         response = request(filters, sort, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
