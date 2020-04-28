@@ -31,13 +31,13 @@
       ```
 
 6.  `ipywidgets` requires a separate set of instructions to enable for older Jupyter Notebook versions (<5.3).
-   - Run the pipenv shell in the folder by using `pipenv shell` and run this command: 
+      - Run the pipenv shell in the folder by using `pipenv shell` and run this command: 
       ```
       jupyter nbextension enable --py --sys-prefix widgetsnbextension
       ```
     
       This step is only necessary for the first installation.
-   - Exit the pipenv shell by typing `exit`.
+      - Exit the pipenv shell by typing `exit`.
 7. Jupyter Notebook can now be properly executed. To start the program, run:
    ```
    pipenv run jupyter notebook
