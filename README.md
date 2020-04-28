@@ -1,3 +1,6 @@
+
+<img src="ischool.png" width="300" markdown="1">
+
 # iConsultancy
 
 ## How to run
@@ -44,7 +47,7 @@
    ```
    pipenv run jupyter notebook
    ```
-    - The command `pipenv run jupyter notebook` is needed everytime to access the Jupyter Notebook.
+    - The command `pipenv run jupyter notebook` is needed everytime to access the Jupyter Notebook. Make sure to always navigate to the directory of the repository in the terminal prior to running the program.
 
 8. Once Juypter Notebook is running, open the `config.yml.example` file.
 9. Replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY, save, and rename the file `config.yml`
