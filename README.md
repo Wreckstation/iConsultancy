@@ -1,3 +1,4 @@
+![UMD iSchool Logo](ischool.png) 
 # iConsultancy
 
 ## How to run
