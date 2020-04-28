@@ -9,7 +9,7 @@ headers = {'Api-Token': config["KEY"]}
 s = requests.Session()
 s.headers.update(headers)
 
-def request_deals(filters):
+def request_deals(filters, sort):
     order = sort['sortby'] 
     # Request a dictionary of deals using the specified filters.
     payload = {'filters[search_field]': filters['search_field'],
@@ -28,7 +28,7 @@ def request_deals(filters):
                'filters[maximum_value]': filters['maximum_value'],
                'filters[score_greater_than]': filters['score_greater_than'],
                'filters[score_less_than]': filters['score_less_than'],
-               'filters[score]': filters['score']
+               'filters[score]': filters['score'],
                f'orders[{order}]': sort['sortorder']
                }
     url = config["URL"] + "deals"
