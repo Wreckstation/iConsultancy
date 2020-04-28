@@ -37,7 +37,7 @@
       ```
     
       This step is only necessary for the first installation.
-   - Exit the pipenv shell by typing `quit`.
+   - Exit the pipenv shell by typing `exit`.
 7. Jupyter Notebook can now be properly executed. To start the program, run:
    ```
    pipenv run jupyter notebook
