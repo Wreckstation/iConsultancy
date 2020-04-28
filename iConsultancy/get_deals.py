@@ -14,9 +14,9 @@ def request_deals(filters, sort):
     # Request a dictionary of deals using the specified filters.
     payload = {}
     for field in filters:
-        a = filters[field]
-        if not str(a).isspace():
-            payload[f'filters[{field}]'] = filters[field]
+        val = filters[field]
+        if not str(val).isspace():
+            payload[f'filters[{field}]'] = val
     payload[f'orders[{order}]'] = sort['sortorder']
 
     url = config["URL"] + "deals"
