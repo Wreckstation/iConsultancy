@@ -5,7 +5,7 @@
 The University of Maryland iConsultancy Experimental Learning program provides overall project management and support to students from three of the iSchool’s degree programs: Human-Computer Interaction, Master of Information Management, and Bachelor of Science in Information Science. iConsultancy servers from initial scoping to final deliverables of these projects by providing resources to help those students complete their projects. To track progress on individual projects and store client contacts, iConsultancy uses customer relationship management system ActiveCampaign Deals. 
 
 ## Description
-This repository contains written and built code that exports data from ActiveCampaign Deals via ActiveCampaign's API features into a CSV fileformat. The ability to extract their data into a csv file will increase efficiency, save time, and ensure consistent up-to-date data to keep track of the current state of multiple projects. 
+This repository contains written and built code that exports data from ActiveCampaign Deals via ActiveCampaign's API features into a comma-separated value fileformat. The ability to extract their data into a csv file will increase efficiency, save time, and ensure consistent up-to-date data to keep track of the current state of multiple projects. 
 
 ## 1st time installation
 1. Installation of Python version 3.8 is needed. This step is only necessary for a one-time installation.
