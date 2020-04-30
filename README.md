@@ -2,6 +2,7 @@
 <img src="ischool.png" width="300" markdown="1">
 
 # iConsultancy
+The University of Maryland iConsultancy Experimental Learning program provides overall project management and support to students from three of the iSchool’s degree programs: Human-Computer Interaction, Master of Information Management, and Bachelor of Science in Information Science. iConsultancy servers from initial scoping to final deliverables of these projects by providing resources to help those students complete their projects. These projects give students good learning and real-life professional experiences prior to graduation. To track progress on individual projects and store client contacts, iConsultancy uses customer relationship management system ActiveCampaign Deals.
 
 ## 1st time installation
 1. Installation of Python version 3.8 is needed. This step is only necessary for a one-time installation.
@@ -30,9 +31,6 @@
       pipenv lock --clear
       pipenv sync
       ```
-      
-    Below is a quick demo for how to run Step 5
-    ![](Step6-Step7tutorial.gif)
 
 6. `ipywidgets` requires a separate set of instructions to enable for older Jupyter Notebook versions (<5.3).
       - Run the pipenv shell in the folder by using `pipenv shell` and run this command: 
@@ -42,6 +40,7 @@
       - Exit the pipenv shell by typing `exit`. 
 7.  In `config.yml.example`, replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY. Save and rename the file `config.yml`.
     - Your ActiveCampaign API URL and KEY can be found within your Account Settings page under the "Developer" tab. Each user that is a part of the ActiveCampaign account has their own unique API key. [More info here.](https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API#how-to-obtain-your-activecampaign-api-url-and-key)
+    ![](URL_KEY_tutorial_README.gif.gif)
 
       
 ## Usage
