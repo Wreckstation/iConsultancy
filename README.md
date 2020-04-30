@@ -3,16 +3,15 @@
 
 # iConsultancy
 
-## How to run
+## 1st time installation
 1. Installation of Python version 3.8 is needed. This step is only necessary for a one-time installation.
    [Download the latest Python update here!](https://www.python.org/) 
    - If Python is already installed, check to ensure the Python version installed is correct:
    
-     |   OS   |                             Method                               |
-     | ------ | ---------------------------------------------------------------- |
-     | Windows| Open Windows Powershell and run `python --version` or `python -V`|
-     | MacOS  | Open terminal window and run `python --version` or `python -V`   |
-     | Linux  | Open terminal window and run `python --version` or `python -V`   |
+     | Operating System |                             Method                               |
+     | ---------------- | ---------------------------------------------------------------- |
+     | Windows          | Open Windows Powershell and run `python --version` or `python -V`|
+     | MacOS & Linux    | Open terminal window and run `python --version` or `python -V`   | 
     
 2. Clone the git repository.
 
@@ -35,24 +34,23 @@
     Below is a quick demo for how to run Step 5
     ![](Step6-Step7tutorial.gif)
 
-6.  `ipywidgets` requires a separate set of instructions to enable for older Jupyter Notebook versions (<5.3).
+6. `ipywidgets` requires a separate set of instructions to enable for older Jupyter Notebook versions (<5.3).
       - Run the pipenv shell in the folder by using `pipenv shell` and run this command: 
       ```
       jupyter nbextension enable --py --sys-prefix widgetsnbextension
       ```
-      - Exit the pipenv shell by typing `exit`.
-      This step is only necessary for the first installation.
+      - Exit the pipenv shell by typing `exit`. 
+7.  In `config.yml.example`, replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY. Save and rename the file `config.yml`.
+    - Your ActiveCampaign API URL and KEY can be found within your Account Settings page under the "Developer" tab. Each user that is a part of the ActiveCampaign account has their own unique API key. [More info here.](https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API#how-to-obtain-your-activecampaign-api-url-and-key)
+
       
-7. Jupyter Notebook can now be properly executed in the pipenv virtual environment. To start the program, run:
+## Usage
+8. Ensure the `config.yml` file has the up-to-date ActiveCampaign URL and KEY.
+
+9. Jupyter Notebook can now be properly executed in the pipenv virtual environment. To start the program, run:
    ```
    pipenv run jupyter notebook
    ```
     - The command `pipenv run jupyter notebook` is needed everytime to access the Jupyter Notebook. Make sure to always navigate to the directory of the repository in the terminal prior to running the program.
 
-8. Once Juypter Notebook is running, open the `config.yml.example` file.
-9. Replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY, save, and rename the file `config.yml`
-   Everytime the URL and KEY change, ensure the `config.yml` file is updated to reflect the new URL and KEY.
-   ![](URL_KEY_tutorial_README.gif)
-
 10. Navigate to `Main.ipynb` and run all cells to start the UI and make your queries!
-   
