@@ -92,6 +92,7 @@ val_label = widgets.Label(value='≤ Value ≤')
 val_box = widgets.HBox([minval_floattext, val_label, maxval_floattext])
 
 # Score
+score_name_text = widgets.Text(description='Score Name:')
 score_floatext = widgets.FloatText(
     placeholder='',
     description='Score =')
@@ -104,7 +105,8 @@ score_l_floattext = widgets.FloatText(
        description='',
        layout=Layout(width = '20%'))
 score_label = widgets.Label(value='< Score <')
-score_box = widgets.HBox([score_g_floattext, score_label, score_l_floattext])
+score_hbox = widgets.HBox([score_g_floattext, score_label, score_l_floattext])
+score_box = widgets.VBox([score_name_text,score_floatext,score_hbox])
 
 # Output options
 checkbox = widgets.Checkbox(
@@ -135,10 +137,7 @@ sort_box = widgets.Box(children=[sortby_menu, widgets.Label(
 # Output widgets
 def on_button_clicked(_):
     # "linking function with output"
-    with out:
-        # what happens when we press the button
-        clear_output()
-        filters_dict_text = {'search_field': search_field_menu.value,
+    filters_dict_text = {'search_field': search_field_menu.value,
                    'search': search_text.value,
                    'status': status_menu.value,
                    'stage': stage_text.value,
@@ -150,12 +149,17 @@ def on_button_clicked(_):
                    'updated_before': updated_before_calendar.value,
                    'updated_after': updated_after_calendar.value,
                    'nextdate_range': nextdate_range_menu.value,
+                   'score_name': score_name_text.value
                     }
-        filters_dict_numeric = {'minimum_value': minval_floattext.value,
+    filters_dict_numeric = {'minimum_value': minval_floattext.value,
                    'maximum_value': maxval_floattext.value,
                    'score_greater_than': score_g_floattext.value,
                    'score_less_than': score_l_floattext.value,
-                   'score': score_floatext.value}
+                   'score': score_floatext.value
+                   }
+    with out:
+        # what happens when we press the button
+        clear_output()
         # value and score must be altered to be used as a score
         filters = {}
         for filter in filters_dict_text:
@@ -164,7 +168,7 @@ def on_button_clicked(_):
                 filters[filter] = filters_dict_text[filter]
         for filter in filters_dict_numeric:
             val = filters_dict_numeric[filter]
-            if val != 0:
+            if val != 0 and val != '0':
                 filters[filter] = filters_dict_numeric[filter]
         sort = {'sortby': sortby_menu.value, 'sortorder': sortorder_menu.value}
         response = request(filters, sort, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
@@ -189,7 +193,6 @@ full_display = widgets.VBox([search_box,
                             created_box, 
                             updated_box, 
                             val_box, 
-                            score_floatext,
                             score_box, 
                             button_with_check,
                             file_name_text,

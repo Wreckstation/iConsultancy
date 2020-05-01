@@ -32,6 +32,21 @@ def request_tags(search):
     response.close() # Close connection to server
     return response
 
+def request_scores():
+    # Request a dictionary of all scores found.
+    url = config["URL"] + "scores"
+    response = s.get(url)
+    response.close() # Close connection to server
+    return response
+
+def return_score_ids(search=''):
+    response = request_scores().json()
+    id = -1
+    for score in response['scores']:
+        if score['name'] == search:
+            id = score['id']
+    return id
+
 def return_tag_ids(search, b_multiple_tag_search = False):
     # method returns several codes on exit depending on state.
     # Return format is an array: [(exit code), (tag ids found as an array)]
@@ -60,6 +75,15 @@ def request(filters, sort, b_output_type = True, fn = None, mt = False):
     tags = ['']
     tag_response_code = -1
     notices = ''
+    #score API request formatting
+    if not filters['score_name'].isspace():
+        score_id = return_score_ids(filters['score_name'])
+        for x in ['score_greater_than', 'score_less_than', 'score']:
+            if x in req_filters:
+                val = req_filters[x]
+                req_filters[x] = f'{score_id}:{val}'
+        del req_filters['score_name']
+    #tag search
     if filters['tags'] != '':
         tag_response = return_tag_ids(filters['tags'], mt)
         tag_response_code = tag_response[0]
@@ -71,6 +95,7 @@ def request(filters, sort, b_output_type = True, fn = None, mt = False):
         elif tag_response_code == 3:
             notices += 'There was more than one tag that was similar to your query, and all matches were returned.\n\n'
         result = None
+        del req_filters['tags']
         for tag in tags: # If searching by multiple tags, search all and concat into one df
             req_filters['tag'] = tag
             if result is None:
