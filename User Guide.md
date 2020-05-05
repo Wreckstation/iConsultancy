@@ -1,4 +1,4 @@
-# iConsultancy ActiveCampaign API Deals Extractor - User Guide
+# UMD iConsultancy ActiveCampaign API Deals Extractor - User Guide
 
 ## Make sure the instructions in README.md have been followed before using this program.
 
