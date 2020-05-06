@@ -16,13 +16,14 @@
 ### Search
 <img align="left" src="user guide gfx\searchUI.png"><br/><br/><br/><br/><br/>
 
-Searches deals by keyword. The dropdown lets you specify searching by: 
+Searches deals by keyword. 
+The dropdown lets you specify searching by: 
 - **Title:** Project title.
 - **Contacts:** First name of the project's primary contact.
 - **Organization:** Name of the project's primary contact's organization.
 
-Search deals by keyword. The text input lets you specify searching by:
--  **Title:** The name of a specific Project title to search for.
+ The text input lets you specify searching by:
+-  **Title:** The name of a specific Project title.
 - **Contacts:** Specific first name of the a project's primary contact.
 - **Organization:** Specific name of the project's primary contact's organization.
 
