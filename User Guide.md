@@ -41,13 +41,17 @@ Filters deals by their status. The dropdown lets you filter by:
 Filters deals based on its pipeline stage. Type the name of the deal stage to filter by.
 
 Deal Stage Options: 
-- Identify
-- Qualify
-- Pursue
-- Materialize
-- Capture
-- Work in Process
-- Close
+- Identify - inital project scoping: Contact information entered into ActiveCampaign and initial conversation with lead contact to propose iConsultancy discussion.
+- Qualify - 30-minute iConsultancy discussion Meeting with lead to suggest capstone project and pricing; to determine if this is a good fit and propose project charter.
+- Pursue - Generated capstone lead data/information from project charter
+- Materialize - Completion of project charter and partner agrees to charter; generated capstone is assigned to a program and course.
+- Capture -Confirmation with iSchool instructor designed specific capstone project will be completed in their section.
+- Work in Process - semester has begun and capstone project is in execution:
+  - i.	Requirements gathering interviews
+  - ii.	Requirements / Project Plan document approval
+  - iii.	Mid- project presentation / sponsor approvals for design
+  - iv.	Final presentation to client
+- Close - project deliverables transferred to client.
 
 ### Owner
 <img align="left" src="user guide gfx\ownerUI.png"><br/><br/>
