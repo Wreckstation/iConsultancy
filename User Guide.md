@@ -41,7 +41,7 @@ Filters deals by their status. The dropdown lets you filter by:
 Filters deals based on its pipeline stage. Type the name of the deal stage to filter by.
 
 Deal Stage Options: 
-- Identify - inital project scoping: Contact information entered into ActiveCampaign and initial conversation with lead contact to propose iConsultancy discussion.
+- Identify - Initial project scoping: Contact information entered into ActiveCampaign and initial conversation with lead contact to propose iConsultancy discussion.
 - Qualify - 30-minute iConsultancy discussion Meeting with lead to suggest capstone project and pricing; to determine if this is a good fit and propose project charter.
 - Pursue - Generated capstone lead data/information from project charter
 - Materialize - Completion of project charter and partner agrees to charter; generated capstone is assigned to a program and course.
@@ -62,6 +62,7 @@ Filters deals based on the name of the deal owner. Type the name of the deal own
 <img align="left" src="user guide gfx\tagnameUI.png"><br/><br/>
 
 Filters deals based on a deal's tag name within the Deals pipeline associated w/ deal's primary contact. Type the name of the tag name to filter by. 
+- Check the checkbox ```for Return all tags that match``` to return all projects that match the specified tag name from the Tag Name filter
 
 ### Next Date
 <img align="left" src="user guide gfx\nextdateUI.png"><br/><br/><br/><br/><br/><br/>
@@ -89,7 +90,7 @@ Sorts deals based on the following in ascending/descending order:
 ### Created & Updated
 <img align="left" src="user guide gfx\createdupdatedUI.png"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
 
-Filters deals between dates before/after they were created and/or updated. You may type the date, increment/decrement the day/month/year, or select a calendar date via the dropdown arrow.
+Filters deals between dates before/after they were created and/or updated. You may type the date, increment/decrement by a value of one for the day/month/year, or select a calendar date via the dropdown arrow.
 
 ### Value
 <img align="left" src="user guide gfx\valueUI.png"><br/><br/>
