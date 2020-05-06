@@ -45,7 +45,7 @@ Deal Stage Options:
 - Qualify - 30-minute iConsultancy discussion Meeting with lead to suggest capstone project and pricing; to determine if this is a good fit and propose project charter.
 - Pursue - Generated capstone lead data/information from project charter
 - Materialize - Completion of project charter and partner agrees to charter; generated capstone is assigned to a program and course.
-- Capture -Confirmation with ischool instructor designed specific capstone project will be completed in their section.
+- Capture -Confirmation with iSchool instructor designed specific capstone project will be completed in their section.
 - Work in Process - semester has begun and capstone project is in execution:
   - i.	Requirements gathering interviews
   - ii.	Requirements / Project Plan document approval
