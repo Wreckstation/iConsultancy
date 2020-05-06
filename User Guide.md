@@ -18,8 +18,13 @@
 
 Searches deals by keyword. The dropdown lets you specify searching by: 
 - **Title:** Project title.
-- **Contacts:** 1st name of the project's primary contact.
+- **Contacts:** First name of the project's primary contact.
 - **Organization:** Name of the project's primary contact's organization.
+
+Search deals by keyword. The text input lets you specify searching by:
+-  **Title:** The name of a specific Project title to search for.
+- **Contacts:** Specific first name of the a project's primary contact.
+- **Organization:** Specific name of the project's primary contact's organization.
 
 ### Status
 <img align="left" src="user guide gfx\statusUI.png"><br/><br/><br/><br/><br/>
