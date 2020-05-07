@@ -1,7 +1,7 @@
 
 <img src="ischool.png" width="300" markdown="1">
 
-# UMD iConsultancy ActiveCampaign API Deals Extractor UI
+# UMD iConsultancy ActiveCampaign API Deals Extractor
 The University of Maryland iConsultancy Experimental Learning program provides overall project management and support to students from three of the iSchool’s degree programs: Human-Computer Interaction, Master of Information Management, and Bachelor of Science in Information Science. iConsultancy servers from initial scoping to final deliverables of these projects by providing resources to help those students complete their projects. To track progress on individual projects and store client contacts, iConsultancy uses customer relationship management system ActiveCampaign Deals. 
 
 ## Description
