@@ -19,23 +19,30 @@ def request_deals(filters, sort):
             payload[f'filters[{field}]'] = val
     payload[f'orders[{order}]'] = sort['sortorder']
 
-    url = config["URL"] + "deals"
-    response = s.get(url, params=payload)
-    response.close() # Close connection to server
+    response = request_stuff('deals', payload)
     return response
 
 def request_tags(search):
     # Request a dictionary of tags using a name search. Returns multiple if found.
     payload = {'search': search}
-    url = config["URL"] + "tags"
-    response = s.get(url, params=payload)
-    response.close() # Close connection to server
+    response = request_stuff('tags', payload)
     return response
 
 def request_scores():
     # Request a dictionary of all scores found.
-    url = config["URL"] + "scores"
-    response = s.get(url)
+    response = request_stuff('scores')
+    return response
+
+def request_stages(search):
+    # Request a dictionary of deal stages using a name search. Returns multiple if found.
+    payload = {'filters[title]': search}
+    response = request_stuff('dealStages', payload)
+    return response
+
+def request_stuff(searchtype, payload={'':''}):
+    # Request a dictionary of deal stages using a name search. Returns multiple if found.
+    url = config["URL"] + searchtype
+    response = s.get(url, params=payload)
     response.close() # Close connection to server
     return response
 
@@ -47,26 +54,32 @@ def return_score_ids(search=''):
             id = score['id']
     return id
 
-def return_tag_ids(search, b_multiple_tag_search = False):
+def return_ids(search, b_multiple_search=False, idtype=None, searchmethod=None):
     # method returns several codes on exit depending on state.
-    # Return format is an array: [(exit code), (tag ids found as an array)]
+    # Return format is an array: [(exit code), (ids found as an array)]
     # 0 = no tags were found
     # 1 = success
-    # 2 = success, but multiple tags were found and only the first was used
-    # 3 = success, multiple tags returned
-    response = request_tags(search).json()
+    # 2 = success, but multiple ids were found and only the first was used
+    # 3 = success, multiple ids returned
+    response = searchmethod(search).json()
     if not response or int(response['meta']['total']) == 0:
         return [0, '']
     elif int(response['meta']['total']) >= 2:
-        if not b_multiple_tag_search:
-            return [2, [response['tags'][0]['id']]]
+        if not b_multiple_search:
+            return [2, [response[idtype][0]['id']]]
         else:
             a = []
-            for i in response['tags']:
+            for i in response[idtype]:
                 a += i['id']
             return [3, a]
     else:
-        return [1, [response['tags'][0]['id']]]
+        return [1, [response[idtype][0]['id']]]
+
+def return_tag_ids(search, b_multiple_tag_search = False):
+    return return_ids(search, b_multiple_tag_search, 'tags', request_tags)
+
+def return_stage_id(search):
+    return return_ids(search, False, 'dealStages', request_stages)
 
 def request(filters, sort, b_output_type = True, fn = None, mt = False):
     # Prepare tag id search by converting name to ids
@@ -75,7 +88,7 @@ def request(filters, sort, b_output_type = True, fn = None, mt = False):
     tags = ['']
     tag_response_code = -1
     notices = ''
-    #score API request formatting
+    # score API request formatting
     if not filters['score_name'].isspace():
         score_id = return_score_ids(filters['score_name'])
         for x in ['score_greater_than', 'score_less_than', 'score']:
@@ -83,7 +96,11 @@ def request(filters, sort, b_output_type = True, fn = None, mt = False):
                 val = req_filters[x]
                 req_filters[x] = f'{score_id}:{val}'
         del req_filters['score_name']
-    #tag search
+    # Use API to change stage name search to ID
+    if not filters['stage'].isspace():
+        stage_id = return_stage_id(filters['stage'])[1]
+        req_filters['stage'] = stage_id
+    # tag search
     if filters['tags'] != '':
         tag_response = return_tag_ids(filters['tags'], mt)
         tag_response_code = tag_response[0]
