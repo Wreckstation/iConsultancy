@@ -174,7 +174,10 @@ def on_button_clicked(_):
         response = request(filters, sort, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
         if warning_checkbox.value == True:
             print(response[1]) # return any system messages that the query returned
-        print('Saved as ' + file_name_text.value +'.\nOutput:')
+        if checkbox.value == False:
+            print('Saved as ' + file_name_text.value +'.\nOutput:')
+        else:
+            print('Output:')
         print(response[0]) # If response is none it won't error because of concatenating None
 
 # linking button and function together using a button's method
