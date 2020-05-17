@@ -1,6 +1,6 @@
 # UMD iConsultancy ActiveCampaign API Deals Extractor - User Guide
 
-## Make sure the instructions in README.md have been followed before using this program. 
+## Make sure the instructions in README.md have been followed the User Testing Documentation
 
 ## How to use
 1. Go to config.yml and enter in our ActiveCampaign Sandbox Developer credential for the URL and KEY.
