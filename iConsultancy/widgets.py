@@ -8,8 +8,8 @@ from iConsultancy.get_deals import request
 
 # Search field
 search_field_menu = widgets.Dropdown(
-        options=[('All', 'all'), ('Title', 'title'), ('Contacts', 'contact'), ('Organizations', 'org')],
-        value='all',
+        options=[('N/A', ''), ('Title', 'title'), ('Contacts', 'contact'), ('Organizations', 'org')],
+        value='',
         description='Search:',
         layout=Layout(width = '15em'))
 search_text = widgets.Text(
@@ -111,10 +111,12 @@ score_box = widgets.VBox([score_name_text,score_floatext,score_hbox])
 # Output options
 checkbox = widgets.Checkbox(
            description='return as JSON (debug)',
-           value=True)
+           indent=False,
+           value=False)
 warning_checkbox = widgets.Checkbox(
            description='Notices',
            layout=Layout(width = '20%'),
+           indent=False,
            value=True)
 
 file_name_text = widgets.Text(
@@ -144,13 +146,14 @@ def on_button_clicked(_):
                    'owner': owner_text.value,
                    'tags': tag_text.value,
                    'tasktype': tasktype_text.value,
-                   'created_before': created_before_calendar.value,
+                   'score_name': score_name_text.value
+                    }
+    filters_dict_date = {'created_before': created_before_calendar.value,
                    'created_after': created_after_calendar.value,
                    'updated_before': updated_before_calendar.value,
                    'updated_after': updated_after_calendar.value,
-                   'nextdate_range': nextdate_range_menu.value,
-                   'score_name': score_name_text.value
-                    }
+                   'nextdate_range': nextdate_range_menu.value
+                   }
     filters_dict_numeric = {'minimum_value': minval_floattext.value,
                    'maximum_value': maxval_floattext.value,
                    'score_greater_than': score_g_floattext.value,
@@ -164,12 +167,16 @@ def on_button_clicked(_):
         filters = {}
         for filter in filters_dict_text:
             val = filters_dict_text[filter]
-            if not str(val).isspace():
-                filters[filter] = filters_dict_text[filter]
+            if not val.isspace() and len(val) != 0:
+                filters[filter] = val
         for filter in filters_dict_numeric:
             val = filters_dict_numeric[filter]
             if val != 0 and val != '0':
-                filters[filter] = filters_dict_numeric[filter]
+                filters[filter] = val
+        for filter in filters_dict_date:
+            val = filters_dict_date[filter]
+            if val is not None:
+                filters[filter] = val
         sort = {'sortby': sortby_menu.value, 'sortorder': sortorder_menu.value}
         response = request(filters, sort, checkbox.value, file_name_text.value, multiple_tag_checkbox.value)
         if warning_checkbox.value == True:
@@ -191,12 +198,12 @@ full_display = widgets.VBox([search_box,
                             owner_text, 
                             tag_box, 
                             nextdate_range_menu, 
-                            tasktype_text, 
-                            sort_box,
-                            created_box, 
+                            tasktype_text,
+                            created_box,
                             updated_box, 
-                            val_box, 
-                            score_box, 
+                            val_box,
+                            score_box,
+                            sort_box,
                             button_with_check,
                             file_name_text,
                             out])
