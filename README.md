@@ -43,7 +43,7 @@ This repository contains written and built code that exports data from ActiveCam
       - Exit the pipenv shell by typing `exit`. 
 7.  In `config.yml.example`, replace the URLHERE and KEYHERE fields with your own ActiveCampaign URL and KEY. Save and rename the file `config.yml`.
     - Your ActiveCampaign API URL and KEY can be found within your Account Settings page under the "Developer" tab. Each user that is a part of the ActiveCampaign account has their own unique API key. [More info here.](https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API#how-to-obtain-your-activecampaign-api-url-and-key)
-    ![](README gfx\URL_KEY_tutorial_README.gif)
+    <img src="README gfx\URL_KEY_tutrial_README.gif" width="300" markdown="1">
 
       
 ## Usage
