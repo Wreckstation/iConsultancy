@@ -17,6 +17,7 @@ Notes:
   - Try restarting the kernel and running all the cells. 
   - Try shutting down Jupyter Notebook and restart it if resetting the kernel doesnt work.
 - Ensure your `File Name` when you click ` Get CSV report` is not the same as another filename; it will override and replace it.
+- If `TimeOutError` occurs, click `Get CSV Report` button again.
 
 ## Test Cases
 
@@ -25,15 +26,21 @@ Notes:
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1| Check to ensure CSV report output extracts every Deal| 1. Ensure all criteria is by default: <br/> `Search`: N/A </br> `Status` Any <br/> `Next Date`: Any <br/> `Before`: mm/dd/yyyy <br/> `After`: mm/dd/yyyy <br/> 0 `≤ Value ≤` 0 <br/> `Score =` 0 <br/> 0 `< Score <` 0 <br/> `Sort by` N/A `in this order:` Descending <br/> uncheck box for `return as JSON (debug)` <br/> check box for `Notices`| Should generate a CSV report containing 14 Deals| As Expected | Pass|
 
-### Search: Title
-
+### `Search: Title` Test Case
+#### Specific Title & Specific Deal Stage Titles
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
-|1 | Check `Search` filter for Deal `Title` with valid Deal title and Deal stage data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `TitleId` in `Search here `<br/> 4. Enter `DealStageId` in the `Deal Stage` text input box <br/> 5. Press `Get .CSV Report` to output a .CSV report| **TitleId**: Bunny Bonanza <br/> **DealStageId**: Identify| Should generate a CSV report for Bunny Bonanza| As Expected| Pass|    
-|2 | Check `Search` filter for Deal `Title` with invalid Deal title and Deal stage data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `TitleId` in `Search here `<br/> 4. Enter `DealStageId` in the `Deal Stage` text input box <br/> 5. Press `Get .CSV Report` to output a .CSV report| **TitleId**: Bunnie Bonanaza <br/> **DealStageId**: Identify| Should generate an empty CSV report| As Expected| Pass|    
+|1 | Check `Search` filter for Deal `Title` with valid Deal Title  data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `TitleId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **TitleId**: Bunny Bonanza <br/> | Should generate a CSV report for Bunny Bonanza| As Expected| Pass|    
+|2 | Check `Search` filter for Deal `Title` with invalid Deal Title data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `TitleId` in `Search here `<br/> 4.  Press `Get .CSV Report` to output a .CSV report| **TitleId**: Bunnie Bonanaza <br/> | Should generate an empty CSV report| As Expected| Pass| 
+|3 | Check `Search` filter for Deal `Title` with valid Deal Title and Deal Stage data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `DealStageId` in `Deal Stage`<br/> 4. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Identify <br/> | Should generate a CSV report with 2 Deals from the Identify Deal Stage, Bunny Bonanza and Lipbalm Website| As Expected| Pass| 
 
 
 ### Search: Contacts
+| Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|--------------|--------------|-------------|--------|
+|1 | Check `Search` filter for `Contacts` with valid ContactId | 1. Click Drop Down for Search <br/> 2. Select `Contacts`<br/> 3. Enter `ContactId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunny Lady <br/> | Should generate a CSV report for Bunny Bonanza with 2 Deals, Bunny Bonanza and Bunny Statistic| As Expected| Pass| 
+
+
 
 ### Search: Organization
 
