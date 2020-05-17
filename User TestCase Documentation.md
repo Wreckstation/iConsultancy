@@ -32,15 +32,14 @@ Notes:
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
 |1 | Check `Search` filter for Deal `Title` with valid Deal Title  data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `TitleId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **TitleId**: Bunny Bonanza <br/> | Should generate a CSV report for Bunny Bonanza| As Expected| Pass|    
 |2 | Check `Search` filter for Deal `Title` with invalid Deal Title data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `TitleId` in `Search here `<br/> 4.  Press `Get .CSV Report` to output a .CSV report| **TitleId**: Bunnie Bonanaza <br/> | Should generate an empty CSV report| As Expected| Pass| 
-|3 | Check `Search` filter for Deal `Title` with valid Deal Title and Deal Stage data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `DealStageId` in `Deal Stage`<br/> 4. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Identify <br/> | Should generate a CSV report with 2 Deals from the Identify Deal Stage, Bunny Bonanza and Lipbalm Website| As Expected| Pass| 
-
+|3 | Check `Search` filter for Deal `Title` with valid Deal Title and Deal Stage data| 1. Click Drop Down for Search <br/> 2. Select `Title` and leave `Search:here` text input box empty <br/> 3. Enter `DealStageId` in `Deal Stage`<br/> 4. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Identify <br/> | Should generate a CSV report with 2 Deals from the Identify Deal Stage, Bunny Bonanza and Lipbalm Website| As Expected| Pass| 
 
 ### `Search: Contacts` Test Cases
 #### Sepcific Contact Name 
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
 |1 | Check `Search` filter for `Contacts` with valid ContactId | 1. Click Drop Down for Search and select `Contacts`<br/> 2. Enter `ContactId` in `Search here `<br/> 3. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunny Lady <br/> | Should generate a CSV report for Bunny Bonanza with 2 Deals, Bunny Bonanza and Bunny Statistic| As Expected| Pass|
-|2 | Check `Search` filter for `Contacts` with invalid ContactId | 1. Click Drop Down for Search <br/> 2. Select `Contacts`<br/> 3. Enter `ContactId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunnie Lady <br/> | Should generate an empty CSV report| As Expected| Pass|
+|2 | Check `Search` filter for `Contacts` with missplled ContactId for `Bunny Lady` | 1. Click Drop Down for Search <br/> 2. Select `Contacts`<br/> 3. Enter `ContactId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunnie Lady <br/> | Should generate an empty CSV report, since `Contacts` is mispelled| As Expected| Pass|
 
 ### `Search: Organization` Test Cases
 #### Specific Organization Name 
@@ -66,6 +65,17 @@ Notes:
 |2 | Check `Deal Stage` filter for `Deal Title` with valid data| 1.  Enter `DealStageId` in the `Deal Stage` text input box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Materialize| Should generate a CSV report for 2 Deals (Bunny Statistics and H4U Vending Machines)| As Expected| Pass| 
 
 ### Owner
+#### Specific Owner & Specific Owner for Specified Deal Stage
+| Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|--------------|--------------|-------------|--------|
+|1 | Check `Owner` filter with valid data| 1.  Enter `OwnerId` in the `Owner` text input box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **OwnerId**: Rachel Tao| Should generate a CSV report for all Deals owned by Rachel Tao| Not As Expected| Fail|  
+|2 | Check `Owner` filter  with valid data| 1.  Enter `OwnerId` in the `Owner` text input box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **OwnerId**: 1| Should generate a CSV report for all Deals owned by Owner 1, which is the numeric representation for Rachel Tao| As Expected| Pass|
+|3 | Check `Owner` filter  with invalid data| 1.  Enter `OwnerId` in the `Owner` text input box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **OwnerId**: 2| Should generate an empty CSV report, since Owner 2 does not exist| As Expected| Pass|
+|4| Check `Owner` filter with specified `Deal Stage` with valid data| 1.  Enter `OwnerId` in the `Owner` text input box <br/> 2. Enter `DealStageId` in `Deal Stage` text input box <br/> 3. Press `Get .CSV Report` to output a .CSV report| **OwnerId**: 1 <br/> **DealStageId**: Identify| Should generate a CSV report for 2 Deals(Bunny Bonanza and Lipbalm Website) owned by Owner 1 in the Identify Stage| As Expected| Pass|
+
+From the Test Cases performed for `Owner` filter, we noticed that we are unable to generate a report for a specific `Owners` name from our Deals Pipeline. However, we are able to generate a CSV output with the owner as its numeric value.
+Rachel Tao is OwnerId 1 from our Pipeline.
+
 
 ### `Tag Name` Test Cases
 #### Specific Tag Names & Specific Tag Name for Specified Deal Stage
