@@ -34,9 +34,9 @@
 ## Deal Status
 | Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
-|1 | Check Deal `Status` filter for valid `Open` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Open` <br/> 2.  Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing Deals| Not As Expected| Fail|    
+|1 | Check Deal `Status` filter for valid `Open` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Open` <br/> 2.  Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing Deals| Not As Expected; generates for a default stage `To Contact`| Fail|    
 |2 | Check Deal `Status` filter for valid `Lost` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Lost` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Aquire Amazon)| As Expected| Pass| 
-|3 | Check Deal `Status` filter for valid `Won` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Won` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Toliet Paper)| Not As Expected| Fail | 
+|3 | Check Deal `Status` filter for valid `Won` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Won` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Toliet Paper)| Not As Expected; generates for a default stage `To Contact`| Fail | 
 
 
 
@@ -74,7 +74,7 @@
 
 | Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
 |----------|-------------------|-----------------|--------------|--------------|-------------|
-|1 | Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value data| 1.  Enter `150` in the search box to the left of the <br/> `≤ Value ≤` filter and `10000` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 4 Deals (Bunny Bonanza, Lipbalm Website, Bunny Statistics, and Debug| Not As Expected| Fail|    
+|1 | Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value data| 1.  Enter `150` in the search box to the left of the <br/> `≤ Value ≤` filter and `10000` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 4 Deals (Bunny Bonanza, Lipbalm Website, Bunny Statistics, and Debug| Not As Expected; | Fail|    
 |2 | Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value and `Deal Stage` data|1.  Enter `Identify` in the `Deal Stage` search box <br/> 2.  Enter `600` in the search box to the left of the <br/> `≤ Value ≤` filter and `2500` in the search box to the right <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 2 Deals (Bunny Bonanza and Lipbalm Website| As Expected| Pass|  
 
 ### Filename
