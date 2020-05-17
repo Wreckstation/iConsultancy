@@ -6,8 +6,8 @@
 1. Go to config.yml and enter in our ActiveCampaign Sandbox Developer credential for the URL and KEY.
 2. Save the config.yml file and return to the Jupyter Dashboard.
 3. Locate `Main.ipynb` in Jupyter Notebook and open this file.
-4. Run all cells. (Cells > Run All) These fields should appear on your screen: ![](UI.png)
-5. Enter in the listed parameters to filter/sort the output as listed in the test case `test steps`.
+4. Run all cells. (Cells > Run All)
+5. Enter in the listed parameters to filter/sort the output as listed in the Test Cases `Test Steps`
 6. Make sure to uncheck the JSON  checkbox.
 8. Press `Get .CSV Report` to output a .CSV report of the Test Case under implementation.
 9. Repeat steps 1 through steps 7 for each Test Case performed.
@@ -54,8 +54,8 @@ Notes:
 
 | Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
-|1 | Check Deal `Status` filter for valid `Open` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Open` <br/> 2.  Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing Deals| Not As Expected; generates for a default stage `To Contact`| Fail|    
-|2 | Check Deal `Status` filter for valid `Lost` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Lost` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Aquire Amazon)| As Expected| Pass| 
+|1 | Check Deal `Status` filter for valid `Open` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Open` <br/> 2.  Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing all Open Deals| Not As Expected; generates for a default stage `To Contact`| Fail|    
+|2 | Check Deal `Status` filter for valid `Lost` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Lost` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Aquire Amazon)| As Expected| Fail| 
 |3 | Check Deal `Status` filter for valid `Won` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Won` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Toliet Paper)| Not As Expected; generates for a default stage `To Contact`| Fail | 
 
 ### Deal Stage
