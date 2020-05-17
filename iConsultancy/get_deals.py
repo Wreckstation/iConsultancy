@@ -89,7 +89,7 @@ def request(filters, sort, b_output_type = True, fn = None, mt = False):
     tag_response_code = -1
     notices = ''
     # score API request formatting
-    if not filters['score_name'].isspace():
+    if 'score_name' in filters and not filters['score_name'].isspace():
         score_id = return_score_ids(filters['score_name'])
         for x in ['score_greater_than', 'score_less_than', 'score']:
             if x in req_filters:
@@ -97,11 +97,11 @@ def request(filters, sort, b_output_type = True, fn = None, mt = False):
                 req_filters[x] = f'{score_id}:{val}'
         del req_filters['score_name']
     # Use API to change stage name search to ID
-    if not filters['stage'].isspace():
+    if 'stage' in filters and not filters['stage'].isspace():
         stage_id = return_stage_id(filters['stage'])[1]
         req_filters['stage'] = stage_id
     # tag search
-    if filters['tags'] != '':
+    if 'tags' in filters and filters['tags'] != '':
         tag_response = return_tag_ids(filters['tags'], mt)
         tag_response_code = tag_response[0]
         tags = tag_response[1]
