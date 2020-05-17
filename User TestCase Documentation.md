@@ -12,12 +12,18 @@
 8. Press `Get .CSV Report` to output a .CSV report of the Test Case under implementation.
 9. Repeat steps 1 through steps 7 for each Test Case performed.
 
+Notes:
 - Kernel only reads config.yml file once at start up, so if you make any changes to URL and KEY it might not read it. 
   - Try restarting the kernel and running all the cells. 
   - Try shutting down Jupyter Notebook and restart it if resetting the kernel doesnt work.
-
+- Ensure your `File Name` when you click ` Get CSV report` is not the same as another filename; it will override and replace it.
 
 ## Test Cases
+
+### Default Test Case
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
+|1| Check to ensure CSV report output extracts every Deal| 1. Ensure all criteria is by default: <br/> `Search`: N/A </br> `Status` Any <br/> `Next Date`: Any <br/> `Before`: mm/dd/yyyy <br/> `After`: mm/dd/yyyy <br/> 0 `≤ Value ≤` 0 <br/> `Score =` 0 <br/> 0 `< Score <` 0 <br/> `Sort by` N/A `in this order:` Descending <br/> uncheck box for `return as JSON (debug)` <br/> check box for `Notices`| Should generate a CSV report containing 14 Deals| As Expected | Pass|
 
 ### Search: Title
 
