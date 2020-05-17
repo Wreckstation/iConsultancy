@@ -26,7 +26,7 @@ Notes:
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1| Check to ensure CSV report output extracts every Deal| 1. Ensure all criteria is by default: <br/> `Search`: N/A </br> `Status` Any <br/> `Next Date`: Any <br/> `Before`: mm/dd/yyyy <br/> `After`: mm/dd/yyyy <br/> 0 `≤ Value ≤` 0 <br/> `Score =` 0 <br/> 0 `< Score <` 0 <br/> `Sort by` N/A `in this order:` Descending <br/> uncheck box for `return as JSON (debug)` <br/> check box for `Notices`| Should generate a CSV report containing 14 Deals| As Expected | Pass|
 
-### `Search: Title` Test Case
+### `Search: Title` Test Cases
 #### Specific Title & Specific Deal Stage Titles
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
@@ -35,37 +35,46 @@ Notes:
 |3 | Check `Search` filter for Deal `Title` with valid Deal Title and Deal Stage data| 1. Click Drop Down for Search <br/> 2. Select `Title`<br/> 3. Enter `DealStageId` in `Deal Stage`<br/> 4. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Identify <br/> | Should generate a CSV report with 2 Deals from the Identify Deal Stage, Bunny Bonanza and Lipbalm Website| As Expected| Pass| 
 
 
-### Search: Contacts
+### `Search: Contacts` Test Cases
+#### Sepcific Contact Name 
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
-|1 | Check `Search` filter for `Contacts` with valid ContactId | 1. Click Drop Down for Search <br/> 2. Select `Contacts`<br/> 3. Enter `ContactId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunny Lady <br/> | Should generate a CSV report for Bunny Bonanza with 2 Deals, Bunny Bonanza and Bunny Statistic| As Expected| Pass| 
+|1 | Check `Search` filter for `Contacts` with valid ContactId | 1. Click Drop Down for Search and select `Contacts`<br/> 2. Enter `ContactId` in `Search here `<br/> 3. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunny Lady <br/> | Should generate a CSV report for Bunny Bonanza with 2 Deals, Bunny Bonanza and Bunny Statistic| As Expected| Pass|
+|2 | Check `Search` filter for `Contacts` with invalid ContactId | 1. Click Drop Down for Search <br/> 2. Select `Contacts`<br/> 3. Enter `ContactId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunnie Lady <br/> | Should generate an empty CSV report| As Expected| Pass|
+
+### `Search: Organization` Test Cases
+#### Specific Organization Name 
+| Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|--------------|--------------|-------------|--------|
+|1 | Check `Search` filter for Deal `Organizations` with valid Deal Organization data| 1. Click Drop Down for Search <br/> 2. Select `Organizations`<br/> 3. Enter `OrganizationId` in `Search here `<br/> 4. Press `Get .CSV Report` to output a .CSV report| **OrganizationId**: Treat Beauty <br/> | Should generate a CSV report for 1 deal, Lipbalm Website| As Expected| Pass|    
 
 
+### `Deal Status` Test Cases
+#### Won, Lost, and Open Deal Status
 
-### Search: Organization
-
-## Deal Status
 | Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1 | Check Deal `Status` filter for valid `Open` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Open` <br/> 2.  Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing Deals| Not As Expected; generates for a default stage `To Contact`| Fail|    
 |2 | Check Deal `Status` filter for valid `Lost` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Lost` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Aquire Amazon)| As Expected| Pass| 
 |3 | Check Deal `Status` filter for valid `Won` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Won` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Toliet Paper)| Not As Expected; generates for a default stage `To Contact`| Fail | 
 
-
-
 ### Deal Stage
+### Specific Deal Stage 
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
 |1 | Check `Deal Stage` filter for `Deal Title` with valid data| 1.  Enter `DealStageId` in the `Deal Stage` text input box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Identify| Should generate a CSV report for 2 Deals (Bunny Bonanza and Lipbalm Website)| As Expected| Pass|    
-|2 | Check `Deal Stage` filter for `Deal Title` with valid data| 1.  Enter `DealStageId` in the `Deal Stage` text input box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Materialize| Should generate a CSV report for 2 Deals (Bunny Statistics and H4U Vending Machines)| As Expected| Pass|    
-
+|2 | Check `Deal Stage` filter for `Deal Title` with valid data| 1.  Enter `DealStageId` in the `Deal Stage` text input box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Materialize| Should generate a CSV report for 2 Deals (Bunny Statistics and H4U Vending Machines)| As Expected| Pass| 
 
 ### Owner
 
-## Tag Name
+### `Tag Name` Test Cases
+#### Specific Tag Names & Specific Tag Name for Specified Deal Stage
+
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
-|1 | Check `Tag Name` filter for `Deal Title` with valid data| 1.  Enter `TagId` in the `Tag Name` search box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **TagId**: Capstone Fall 2020| Should generate a CSV report for 3 Deals (Bunny Bonanza, Lipbalm Website, and H4U Vending Machines)| As Expected| Pass|    
+|1 | Check `Tag Name` filter for `Deal Title` with valid data| 1.  Enter `TagId` in the `Tag Name` search box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **TagId**: Capstone Fall 2020| Should generate a CSV report for 3 Deals (Bunny Bonanza, Lipbalm Website, and H4U Vending Machines)| As Expected| Pass| 
+|1 | Check `Tag Name` filter for `Deal Title` with valid data| 1.  Enter `TagId` in the `Tag Name` search box <br/> 2. Press `Get .CSV Report` to output a .CSV report| **TagId**: Capstone Fall 2020| Should generate a CSV report for 3 Deals (Bunny Bonanza, Lipbalm Website, and H4U Vending Machines)| As Expected| Pass|   
+
 
 
 ### Sort by in Ascending/Desending Order
