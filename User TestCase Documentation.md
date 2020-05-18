@@ -29,6 +29,9 @@ INSERT PICTURE HERE
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1| Check to ensure CSV report output extracts every Deal| 1. Ensure all criteria is by default: <br/> `Search`: N/A </br> `Status` Any <br/> `Next Date`: Any <br/> `Before`: mm/dd/yyyy <br/> `After`: mm/dd/yyyy <br/> 0 `≤ Value ≤` 0 <br/> `Score =` 0 <br/> 0 `< Score <` 0 <br/> `Sort by` N/A `in this order:` Descending <br/> uncheck box for `return as JSON (debug)` <br/> check box for `Notices`| Should generate a CSV report containing 15 Deals| As Expected | Pass|
 
+Refer to picture for how criteria looks by default:
+<img src="default criteria.png" width="300" markdown="1">
+
 ### `Search: Title` Test Cases
 #### Specific Title & Specific Deal Stage Titles
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
