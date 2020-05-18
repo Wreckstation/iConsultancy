@@ -185,6 +185,8 @@ These test cases failed to order `Contact Names` by ascending and descending ord
 However, they do order in numerical ascending and descending order for the Contact ID's. 
 
 #### Primary contact organization name
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Primary contact organization name` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in ascending alphabetical order by Account name| Not As Expected| Fail | 
 |2 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Primary contact organization name` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in descending alphabetical order by Account name| Not As Expected| Fail |  
 
@@ -192,6 +194,8 @@ These test cases failed to order `Contact Names` by ascending and descending ord
 However, they do order in numerical ascending and descending order for the Organization ID's. 
 
 #### Next task due date
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Next task due date` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in descending order by `nexttask` | Not As Expected| Fail | 
 |2 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Next task due date` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in descending order by `nexttask` | Not As Expected| Fail |  
 
@@ -200,6 +204,8 @@ Test cases ascending and descending with `nexttasks` that have dates, however, s
 ### `Score` Test Cases
 
 #### `Score =` 
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1| Check to see if `Score =` filter works with valid data| 1. Enter `Score 1` in the `Score Name:` textbox. <br/> 2. Enter `20` in `Score =` text box| Should generate a CSV report with 6 Deals: Bunny Bonanza, Deal 1, in contact Deal 1, in Contact Deal 2, Bunny Statistics, Another deal title, and zero value deal | As Expected| Pass|
 |2| Check to see if `Score =` filter works with invalid data| 1. Enter `Score 1` in the `Score Name:` textbox. <br/> 2. Enter `25` in `Score =` text box| Should generate an empty CSV report| As Expected| Pass|
 
