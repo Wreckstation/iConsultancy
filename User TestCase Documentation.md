@@ -112,6 +112,8 @@ Rachel Tao is OwnerId 1 from our Pipeline.
 |3 | Check `Next Date` filter for Deal's with `Overdue` Tasks| 1. Click Drop Down for `Next Date` and select `Overdue` <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the 1 Deal, H4U Vending Machines, which is the only Deal that has an overdue task | As Expected| Pass| 
 |4| Check `Next Date` filter for Deal's with `No Tasks` Tasks| 1. Click Drop Down for `Next Date` and select `No Tasks` <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for 12 Deals that have `No Tasks` | As Expected| Pass| 
 
+For Test Case 1, where it tests for the `Next Date` filter for Deal's with `Upcoming` tasks, we believe this test failed due to failure to create dummy data that had `Upcoming` tasks.
+
 #### Scheduled for Specified Contact & Scheduled for Specified Deal Stage
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|--------------|-------------|--------|
