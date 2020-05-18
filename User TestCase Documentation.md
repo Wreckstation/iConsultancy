@@ -140,11 +140,58 @@ Assumption that is test case works for valid `Before` and `After` that it will w
 |5| Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value and `Deal Stage` data|1.  Enter `Materialize` in the `Deal Stage` search box <br/> 2.  Enter `150` in the search box to the left of the <br/> `≤ Value ≤` filter and `2500` in the search box to the right <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 1 Deal: Bunny Bonanza| As Expected| Pass|  
 
 ### Sort by in Ascending/Desending Order
-#### 
+#### Title
 | Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
-|1 | Check Sort by widget for Deal Title in Ascending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in ascending alphabetical order.| As ExpectedTo Contact`| Pass |    
-|2 | Check Sort by widget for Deal Title in Descending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in descending alphabetical order.| Not As Expected; generates for a default stage `To Contact`| Fail| 
+|1 | Check Sort by widget for Deal `Title` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal `Title` in ascending alphabetical order.| As Expected| Pass | 
+|2 | Check Sort by widget for Deal `Title` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal `Title` in descending alphabetical order.| As Expected| Pass |   
+
+
+#### Value
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
+|1 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Value` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal `Value` in ascending numerical order, from Deals with least monetary value to greatest monetary value.| As Expected| Pass | 
+|2 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal `Value` in ascending numerical order, from Deals with greatest monetary value to least monetary value| As Expected| Pass |   
+
+#### Created Date
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
+|1 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Created Date` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deals ordered from most recent to least recent creation date| As Expected| Pass | 
+|2 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Created Date` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deals ordered from least recent to most recent creation date| As Expected| Pass |  
+
+#### Primary Contact Name
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
+|1 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Primary contact first name` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deals ordered from most recent to least recent creation date| Not As Expected; contact name is in ascending order for the contact id value, not the name of the contact | Fail | 
+|2 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Primary contact first name` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deals ordered from least recent to most recent creation date|  Not As Expected; contact name is in ascending order for the contact id value, not the name of the contact | Fail |  
+
+These test cases failed to order `Contact Names` by ascending and descending order, since the Contact ID is being extracted with the API features and not the Contact Name. (Example: 10 is numeric representation for contact name `Bunny Lady`. 
+However, they do order in numerical ascending and descending order for the Contact ID's. 
+
+#### Primary contact organization name
+|1 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Primary contact organization name` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in ascending alphabetical order by Account name| Not As Expected| Fail | 
+|2 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Primary contact organization name` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in descending alphabetical order by Account name| Not As Expected| Fail |  
+
+These test cases failed to order `Contact Names` by ascending and descending order, since the Organization ID is being ordered and not the Organziation name (Example: 3 is numeric representation for orgnanization name `Bunny Lovers`. 
+However, they do order in numerical ascending and descending order for the Organization ID's. 
+
+#### Next task due date
+|1 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Next task due date` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in descending order by `nexttask` | Not As Expected| Fail | 
+|2 | Check Sort by widget for Deal `Value` in `Ascending`| 1. Click Drop Down for `Sort by ` and select `Next task due date` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal ordered in descending order by `nexttask` | Not As Expected| Fail |  
+
+Test cases ascending and descending with `nexttasks` that have dates, however, some `nexttask` dates are empty and are ordered inbetween valid dates, where they should appear first in ascending order and last in descending order (chronologically by next task due date, then it appends projects with no next task).
+
+### `Score` Test Cases
+
+#### `Score =` 
+|1| Check to see if `Score =` filter works with valid data| 1. Enter `Score 1` in the `Score Name:` textbox. <br/> 2. Enter `20` in `Score =` text box| Should generate a CSV report with 6 Deals: Bunny Bonanza, Deal 1, in contact Deal 1, in Contact Deal 2, Bunny Statistics, Another deal title, and zero value deal | As Expected| Pass|
+|2| Check to see if `Score =` filter works with invalid data| 1. Enter `Score 1` in the `Score Name:` textbox. <br/> 2. Enter `25` in `Score =` text box| Should generate an empty CSV report| As Expected| Pass|
+
+#### `< Score <`
+| Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
+|----------|-------------------|-----------------|--------------|--------------|-------------|
+|1 | Check <br/> `< Score <` filter for Deals with valid Score Value data| 1.  Enter `9` in the search box to the left of the <br/> `< Score <` filter and `20` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with Deals with Score 1 value between 9 and 20| Not As Expected| Fail | 
+|2 | Check <br/> `< Score <` filter for Deals with valid Score Value data| 1.  Enter `9` in the search box to the left of the <br/> `< Score <` filter and `20` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate an empty CSV report, since all Deals have either Score 1 value of 10 or 20| Not As Expected| Pass | 
 
 ### Filename
 | Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
