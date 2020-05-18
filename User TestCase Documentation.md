@@ -92,12 +92,10 @@ Rachel Tao is OwnerId 1 from our Pipeline.
 #### Upcoming, Scheduled, Overdue, No Tasks
 | Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|--------------|-------------|--------|
-|1 | Check `Next Date` filter for Deal's with `Upcoming` Tasks| 1. Click Drop Down for `Next Date` and select `Upcoming` 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the Deals with Upcoming Tasks| Not As Expected| Fail|
-|2 | Check `Next Date` filter for Deal's with `Scheduled` Tasks| 1. Click Drop Down for `Next Date` and select `Scheduled` 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the 1 Deal, Bunny Bonanza, which is the only Deal that has an upcoming task| As Expected| Pass| 
-|3 | Check `Next Date` filter for Deal's with `Overdue` Tasks| 1. Click Drop Down for `Next Date` and select `Overdue` 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the 1 Deal, H4U Vending Machines, which is the only Deal that has an overdue task | As Expected| Pass| 
-|4| Check `Next Date` filter for Deal's with `No Tasks` Tasks| 1. Click Drop Down for `Next Date` and select `No Tasks` 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for 12 Deals that have `No Tasks` | As Expected| Pass| 
-
-
+|1 | Check `Next Date` filter for Deal's with `Upcoming` Tasks| 1. Click Drop Down for `Next Date` and select `Upcoming` <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the Deals with Upcoming Tasks| Not As Expected| Fail|
+|2 | Check `Next Date` filter for Deal's with `Scheduled` Tasks| 1. Click Drop Down for `Next Date` and select `Scheduled` <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the 1 Deal, Bunny Bonanza, which is the only Deal that has an upcoming task| As Expected| Pass| 
+|3 | Check `Next Date` filter for Deal's with `Overdue` Tasks| 1. Click Drop Down for `Next Date` and select `Overdue` <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the 1 Deal, H4U Vending Machines, which is the only Deal that has an overdue task | As Expected| Pass| 
+|4| Check `Next Date` filter for Deal's with `No Tasks` Tasks| 1. Click Drop Down for `Next Date` and select `No Tasks` <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for 12 Deals that have `No Tasks` | As Expected| Pass| 
 
 #### Scheduled for Specified Contact & Scheduled for Specified Deal Stage
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
@@ -105,29 +103,49 @@ Rachel Tao is OwnerId 1 from our Pipeline.
 |1 | Check `Next Date` filter for specifed `ContactId` Deals with `Scheduled` tasks| 1. Click Drop Down for Search and select `Contacts`<br/> 2. Enter `ContactId` in `Search here `<br/> 3. Click Drop Down for `Next Date` and select `Scheduled`  <br/> 3. Press `Get .CSV Report` to output a .CSV report| **ContactId**: Bunny Lady| Should generate a CSV report for 1 Deal with Scheduled task for Bunny Lady: Bunny Bonanza| As Expected| Pass| 
 |2 | Check `Next Date` filter for specified `DealStageId` Deals with `Scheduled` tasks| 1. Click Drop Down for Search and select `Contacts`<br/> 2. Enter `ContactId` in `Search here `<br/> 3. Click Drop Down for `Next Date` and select `Scheduled`  <br/> 3. Press `Get .CSV Report` to output a .CSV report| **DealStageId**: Identify| Should generate a CSV report for 2 Deals with Scheduled task from Identify Deal Stage: Bunny Bonanza and Lipbalm Website| As Expected| Pass| 
 
+### `Created` Test Cases
+#### `Before`
+| Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|--------------|-------------|--------|
+|1 | Check `Created` filter for Deal creation date with valid data| 1. Click Drop Down for `Before:` and enter "04/16/2020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for with 3 Deals, which were created before April 16th, 2020| As Expected| Pass|    
+|2 | Check `Created` filter for Deal creation date with invalid data.| 1. Click Drop Down for `Before:` and enter "04/16/3020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate an empty CSV report.| As Expected| Pass| 
+
+#### `After`
+| Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|--------------|-------------|--------|
+|1 | Check `Created` filter for Deal creation date with valid data| 1. Click Drop Down for `After:` and enter "05/01/2020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for with 6 Deals, which were created after May 1st, 2020| As Expected| Pass|    
+|2 | Check `Created` filter for Deal creation date with invalid data.| 1. Click Drop Down for `Before:` and enter "05/20/2020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate an empty CSV report.| As Expected| Pass| 
+
+#### `Before` & `After`
+| Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|--------------|-------------|--------|
+|1 | Check `Created` filter for Deal creation date with valid `Before` and `After` data| 1. Click Drop Down for `Before:` and enter "05/18/2020" <br/> 1. Click Drop Down for `After:` and enter "05/14/2020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for with 5 Deals: Lipbalm Website, H4U Vending, Bunny Bonanaza, Bunny Statistics, and Pizza Bingo | As Expected| Pass| 
+
+### Project Updated
+#### `Before` and `After`
+Assumption that is test case works for valid `Before` and `After` that it will work for them on their own.
+
+| Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|--------------|-------------|--------|
+|1 | Check `Created` filter for Deal creation date with valid `Before` and `After` data| 1. Click Drop Down for `Before:` and enter "05/18/2020" <br/> 1. Click Drop Down for `After:` and enter "05/01/2020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for with 5 Deals: Lipbalm Website, H4U Vending, Bunny Bonanaza, Bunny Statistics, and Pizza Bingo | As Expected| Pass| 
 
 
 ### Sort by in Ascending/Desending Order
+#### 
 | Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1 | Check Sort by widget for Deal Title in Ascending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in ascending alphabetical order.| As ExpectedTo Contact`| Pass |    
 |2 | Check Sort by widget for Deal Title in Descending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in descending alphabetical order.| Not As Expected; generates for a default stage `To Contact`| Fail| 
 
-### Project Creation Date
-| Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
-|----------|---------------------|-----------------|--------------|-------------|--------|
-|1 | Check `Created` filter for Deal creation date with valid data| 1. Click Drop Down for `Before:` and enter "04/16/2020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for the Deals created before April 16th, 2020| As Expected| Pass|    
-|2 | Check `Created` filter for Deal creation date with invalid data.| 1. Click Drop Down for `After:` and enter "04/16/3020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate an empty CSV report.| As Expected| Pass| 
-
-
-### Project Updated
 
 ### Project Monetary Value
-
 | Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
 |----------|-------------------|-----------------|--------------|--------------|-------------|
-|1 | Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value data| 1.  Enter `150` in the search box to the left of the <br/> `≤ Value ≤` filter and `10000` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 4 Deals (Bunny Bonanza, Lipbalm Website, Bunny Statistics, and Debug| Not As Expected; generates for a default stage `To Contact`| Fail|    
-|2 | Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value and `Deal Stage` data|1.  Enter `Identify` in the `Deal Stage` search box <br/> 2.  Enter `600` in the search box to the left of the <br/> `≤ Value ≤` filter and `2500` in the search box to the right <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 2 Deals (Bunny Bonanza and Lipbalm Website| As Expected| Pass|  
+|1 | Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value data| 1.  Enter `150` in the search box to the left of the <br/> `≤ Value ≤` filter and `10000` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 3 Deals (Bunny Bonanza, Lipbalm Website, Bunny Statistics| As Expected| Pass| 
+|2| Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value data| 1.  Enter `0` in the search box to the left of the <br/> `≤ Value ≤` filter and `2500` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 4 Deals (Bunny Bonanza, Lipbalm Website, Bunny Statistics, and Pizza Bingo| As Expected| Pass| 
+|3| Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value data| 1.  Enter `2500` in the search box to the left of the <br/> `≤ Value ≤` filter and `0` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 1 Deal: H4U Vending Machines| As Expected| Pass| 
+|4 | Check <br/> ` ≤ Value ≤` filter for Deals with invalid Deal Value data| 1.  Enter `012` in the search box to the left of the <br/> `≤ Value ≤` filter and `-23` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate an empty CSV report| As Expected| Pass| 
+|5| Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value and `Deal Stage` data|1.  Enter `Materialize` in the `Deal Stage` search box <br/> 2.  Enter `150` in the search box to the left of the <br/> `≤ Value ≤` filter and `2500` in the search box to the right <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 1 Deal: Bunny Bonanza| As Expected| Pass|  
 
 ### Filename
 | Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
