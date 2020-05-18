@@ -19,12 +19,12 @@
 Searches deals by keyword. 
 The dropdown lets you specify searching by: 
 - **Title:** Project title.
-- **Contacts:** First name of the project's primary contact.
+- **Contacts:** Name of the project's primary contact; can be first name or full name.
 - **Organization:** Name of the project's primary contact's organization.
 
  The text input lets you specify searching by:
 -  **Title:** The name of a specific Project title.
-- **Contacts:** Specific first name of the a project's primary contact.
+- **Contacts:** Specific name of project's primary contact, can be first name or full name.
 - **Organization:** Specific name of the project's primary contact's organization.
 
 ### Status
@@ -56,7 +56,8 @@ Deal Stage Options:
 ### Owner
 <img align="left" src="user guide gfx\ownerUI.png"><br/><br/>
 
-Filters deals based on the name of the deal owner. Type the name of the deal owner to filter by. 
+Filters deals based on the name of the deal owner. Type the number representation of  deal owner to filter by.
+Example: First name from Owner listed in Owner dropdown of ActiveCampaign will be 1, and this will iterate through names.
 
 ### Tag Name
 <img align="left" src="user guide gfx\tagnameUI.png"><br/><br/>
