@@ -20,6 +20,7 @@ Notes:
 - Ensure your `File Name` when you click ` Get CSV report` is not the same as another filename; it will override and replace it.
 - If `TimeOutError` and/or `ConnectionError` occurs, click `Get CSV Report` button again.
 - Refer to picture below for default values for each criteria:
+<img align="center" src="default criteria.png" width = "600" markdown="1">
 
 
 ## Test Cases
@@ -28,9 +29,6 @@ Notes:
 | Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
 |----------|---------------------|-----------------|-----------------|--------------|-------------|
 |1| Check to ensure CSV report output extracts every Deal| 1. Ensure all criteria is by default: <br/> `Search`: N/A </br> `Status` Any <br/> `Next Date`: Any <br/> `Before`: mm/dd/yyyy <br/> `After`: mm/dd/yyyy <br/> 0 `≤ Value ≤` 0 <br/> `Score =` 0 <br/> 0 `< Score <` 0 <br/> `Sort by` N/A `in this order:` Descending <br/> uncheck box for `return as JSON (debug)` <br/> check box for `Notices`| Should generate a CSV report containing 15 Deals| As Expected | Pass|
-
-Refer to picture for how criteria looks by default:
-<img align="left" src="default criteria.png" markdown="1">
 
 ### `Search: Title` Test Cases
 #### Specific Title & Specific Deal Stage Titles
