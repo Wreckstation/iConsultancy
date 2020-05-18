@@ -129,15 +129,6 @@ Assumption that is test case works for valid `Before` and `After` that it will w
 |----------|---------------------|-----------------|--------------|-------------|--------|
 |1 | Check `Created` filter for Deal creation date with valid `Before` and `After` data| 1. Click Drop Down for `Before:` and enter "05/18/2020" <br/> 1. Click Drop Down for `After:` and enter "05/01/2020" <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for with 5 Deals: Lipbalm Website, H4U Vending, Bunny Bonanaza, Bunny Statistics, and Pizza Bingo | As Expected| Pass| 
 
-
-### Sort by in Ascending/Desending Order
-#### 
-| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
-|----------|---------------------|-----------------|-----------------|--------------|-------------|
-|1 | Check Sort by widget for Deal Title in Ascending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in ascending alphabetical order.| As ExpectedTo Contact`| Pass |    
-|2 | Check Sort by widget for Deal Title in Descending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in descending alphabetical order.| Not As Expected; generates for a default stage `To Contact`| Fail| 
-
-
 ### Project Monetary Value
 | Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
 |----------|-------------------|-----------------|--------------|--------------|-------------|
@@ -146,6 +137,13 @@ Assumption that is test case works for valid `Before` and `After` that it will w
 |3| Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value data| 1.  Enter `2500` in the search box to the left of the <br/> `≤ Value ≤` filter and `0` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 1 Deal: H4U Vending Machines| As Expected| Pass| 
 |4 | Check <br/> ` ≤ Value ≤` filter for Deals with invalid Deal Value data| 1.  Enter `012` in the search box to the left of the <br/> `≤ Value ≤` filter and `-23` in the search box to the right <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate an empty CSV report| As Expected| Pass| 
 |5| Check <br/> ` ≤ Value ≤` filter for Deals with valid Deal Value and `Deal Stage` data|1.  Enter `Materialize` in the `Deal Stage` search box <br/> 2.  Enter `150` in the search box to the left of the <br/> `≤ Value ≤` filter and `2500` in the search box to the right <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report with 1 Deal: Bunny Bonanza| As Expected| Pass|  
+
+### Sort by in Ascending/Desending Order
+#### 
+| Tast Case | Test Case Scenario   | Test Steps    | Expected Result | Actual Result | Pass/Fail|
+|----------|---------------------|-----------------|-----------------|--------------|-------------|
+|1 | Check Sort by widget for Deal Title in Ascending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Ascending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in ascending alphabetical order.| As ExpectedTo Contact`| Pass |    
+|2 | Check Sort by widget for Deal Title in Descending order with created date valid data.| 1. Click Drop Down for `Sort by ` and select `Title` <br/> 2. Click drop down for `in this ord ...` and select  `Descending`. <br/> 3. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report for Deal Title's from pipeline in descending alphabetical order.| Not As Expected; generates for a default stage `To Contact`| Fail| 
 
 ### Filename
 | Tast Case | Test Case Scenario   | Test Steps      | Expected Result | Actual Result | Pass/Fail|
