@@ -61,6 +61,20 @@ Notes:
 |2 | Check Deal `Status` filter for valid `Lost` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Lost` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Aquire Amazon)| As Expected| Fail| 
 |3 | Check Deal `Status` filter for valid `Won` Deals data exportation.| 1. Click Drop Down for `Status ` and select `Won` <br/> <br/> 2. Press `Get .CSV Report` to output a .CSV report| Should generate a CSV report containing 1 Deal (Toliet Paper)| Not As Expected; generates for a default stage `To Contact`| Fail | 
 
+All Test cases resulted in an `AttributeError`
+```
+AttributeError                            Traceback (most recent call last)
+~\Documents\GitHub\iConsultancy\iConsultancy\widgets.py in on_button_clicked(_)
+    168         for filter in filters_dict_text:
+    169             val = filters_dict_text[filter]
+--> 170             if not val.isspace() and len(val) != 0:
+    171                 filters[filter] = val
+    172         for filter in filters_dict_numeric:
+
+AttributeError: 'int' object has no attribute 'isspace'
+
+```
+
 ### Deal Stage
 ### Specific Deal Stage 
 | Tast Case | Test Case Scenario   | Test Steps      | Test Data      |Expected Result | Actual Result | Pass/Fail|
